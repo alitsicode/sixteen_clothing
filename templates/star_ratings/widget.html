@@ -1,0 +1,8 @@
+{% extends "star_ratings/widget_base.html" %}
+{% block rating_detail %}
+<br>
+<p class='badge badge-success'> Average </p> : {{ rating.average }}
+<br>
+<p class='badge badge-warning'> Rate Count </p> : {{ rating.count }}
+
+{% endblock %}

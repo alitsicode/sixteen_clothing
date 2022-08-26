@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% load ratings %}
+{% load static %}
+{% load i18n %}
+{% load humanize %}
+{% block title %}{% trans "all products" %}{% endblock title %}
+    <!-- Page Content -->
+    
+    
+    {% block content %} 
+      <br><br>
+      <div class="page-heading products-heading header-text">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="text-content">
+                <h4>new arrivals</h4>
+                <h2>sixteen products</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+
+      <div class="popular_product">
+        <h2>most viewed post in month </h2>
+        <hr>
+        {% for product in viewed_product %}
+          <div class='text-center'>
+            post : <a href="{% url 'detailproduct' product.id %}" class='badge badge-warning'>{{product.title}}</a>           
+          </div>
+        {% endfor %}
+      </div>
+      <div style='border: 1px solid;border-radius: 10px;margin-top: -215px;width: 452px ;padding: 13px;box-shadow: -6px 5px grey;margin-left: 583px;display: block;' class='rated_product'>
+        <h2>most Rated post in month </h2> 
+        <hr>
+        {% for rated in rated_product %}
+          <div class='text-center'>
+            post : <a class='badge badge-warning' href="{% url 'detailproduct' rated.id %}">{{rated.title}}</a>
+          </div>
+        {% endfor %}
+      </div>
+      <div class="hot_product">
+        <h2>Hot Post in Month </h2>
+        <hr>
+        {% for hot in hot_product %}
+          <div class='text-center'>
+            post : <a href="{% url 'detailproduct' hot.id %}" class='badge badge-warning'>{{hot.title}}</a>           
+          </div>
+        {% endfor %}
+      </div>
+      <br><br><hr>
+      <div class="products">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="filters-content">
+                  <div class="row grid">
+                    {% for product in allproduct %}
+                      <div class="col-lg-4 col-md-4 all des">
+                        <div class="product-item">
+                          <a href="{% url 'detailproduct' product.id %}"><img style='width:350px ; height:400px' src="{{product.cover.url}}" alt=""></a>
+                          <div class="down-content">
+                            <a href="{% url 'detailproduct' product.id %}"><h4>{{product.title}}</h4></a>
+                            {% if product.stock == 'have' %}
+                              <h6>${{product.price}}</h6>
+                              <span class='btn btn-success' style='bottom:65px;color:white;'>{{product.stock}}</span>
+                            {% else %}
+                              <span style='color: #ff0505;font-size: larger;bottom: 252px; margin-right: -18px;'> now we finish that! </span>
+                            {% endif %}
+                            <p>{{product.description|striptags|truncatewords:20}}</p>
+                            <span style='bottom:183px;' >{{product.date_time_create|naturaltime}}</span>
+                            <span style='bottom: 130px;font-size: 20px;color:black;' >seller: <a class='badge badge-primary' href="{% url 'user_post' product.owner.id %}">{{product.owner.username}}</a></span>
+                            {% ratings product %}
+                            <br>
+                            <p class='badge badge-dark'>views</p> : {{product.hits.count}}
+                          </div>
+                          
+                        </div>
+                      </div>
+                    {% endfor %}
+                  </div>
+              </div>
+            </div>
+            <div class="col-md-12">
+              {% if page_obj.has_other_pages %}
+                <ul class="pages">
+                  {% if page_obj.has_previous %}
+                    <li><a href="?page={{ page_obj.previous_page_number}}{% if request.GET.search %}&search={{request.GET.search}}{% endif %}"><i class="fa fa-angle-double-left"></i></a></li>
+                  {% endif %}
+                  {% for i in page_obj.paginator.page_range %}
+                    {% if page_obj.number == i %}
+                      <li class="active"><a href="?page={{i}}{% if request.GET.search %}&search={{request.GET.search}}{% endif %}">{{i}}</a></li>
+                    {% else %}
+                      <li><a href="?page={{i}}{% if request.GET.search %}&search={{request.GET.search}}{% endif %}">{{i}}</a></li>
+                    {% endif %}
+                  {% endfor %}
+                  {% if page_obj.has_next  %}
+                    <li><a href="?page={{ page_obj.next_page_number}}{% if request.GET.search %}&search={{request.GET.search}}{% endif %}"><i class="fa fa-angle-double-right"></i></a></li>
+                  {% endif %}
+                </ul>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endblock content %}  

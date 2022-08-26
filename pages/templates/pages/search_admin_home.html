@@ -1,0 +1,120 @@
+{% extends 'admin_base.html' %}
+{% load ratings %}
+{% block search_title %}Admin Home{% endblock search_title %}
+
+{% block main %}
+{% if messages %}
+  <br><br><br><br>
+  <div class='container'>
+      <ul class="messages">
+          {% for message in messages %}
+            <li class="alert alert-{{ message.tags }} d-flex justify-content-center">{{ message }}</li>
+          {% endfor %}
+      </ul>
+  </div>
+{% endif %}
+<div class="row">
+    <div class="col-12">
+      <div class="card">
+        <!-- /.card-header -->
+        <div class="card-body table-responsive p-0">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>title</th>
+                <th>cover</th>
+                <th>seller</th>
+                <th>description</th>
+                <th>status</th>
+                <th>create_time</th>
+                <th>price</th>
+                <th>stars</th>
+                <th>views</th>
+                <th>in_store?</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for product in object_list %}
+                    <tr>
+                        <td>{{product.title}}
+                          {% if product.is_published in 'bd'|make_list or request.user.is_superuser %}
+                          <br>
+                            <a class='badge badge-primary' href="{% url 'updateproduct' product.id %}">Edit Post</a>
+                          {% endif %}
+                          {% if request.user.is_superuser %}
+                            <a class='badge badge-danger' href="{% url 'deleteproduct' product.id %}">Delete Post</a>
+                          {% endif %}
+                        </td>
+                        <td><img width=120px height=120px src="{{product.cover.url}}" alt=""></td>
+                        <td>{{product.owner}}</td>
+                        <td>{{product.description|striptags|truncatewords:30}}</td>
+                        <td>
+                            {% if product.is_published == 'p' %}
+                                <span class="badge badge-success">published</span>
+                                <a class="badge badge-secondary" href="{% url 'detailproduct' product.id %}" >Watch Post</a>
+                            {% elif product.is_published == 'd' %}
+                                <span class="badge badge-warning">draft</span>
+                                {% if request.user.is_superuser %}
+                                  <a class="badge badge-secondary" href="{% url 'detailproduct' product.id %}" >Watch Post</a>
+                                {% endif %}
+                            {% elif product.is_published == 'i' %}
+                                <span class="badge badge-primary">investigation</span>
+                                {% if request.user.is_superuser %}
+                                  <a class="badge badge-secondary" href="{% url 'detailproduct' product.id %}" >Watch Post</a>
+                                {% endif %}
+                            {% else %}
+                                <span class="badge badge-danger">decline</span>
+                                {% if request.user.is_superuser %}
+                                  <a class="badge badge-secondary" href="{% url 'detailproduct' product.id %}" >Watch Post</a>
+                                {% endif %}
+                            {% endif %}
+                        </td>
+                        <td>{{product.date_time_create}}</td>
+                        <td>{{product.price}} $</td>
+                        <td>{% ratings product %}</td>
+                        <td>{{ product.hits.count }}</td>
+                        {% if product.stock == 'have' %}
+                          <td>
+                            <a style='color:white;' class="badge badge-success">{{ product.stock }}</a>
+                          </td>
+                        {% elif product.stock == 'in_order' %}
+                          <td>
+                            <a class="badge badge-warning">{{ product.stock }}</a>
+                          </td>
+                        {% else %}
+                          <td>
+                            <a style='color:white;' class="badge badge-danger">{{ product.stock }}</a>
+                          </td>
+                        {% endif %}
+                    </tr>
+                {% endfor %}
+            </tbody>
+          </table>
+        </div>
+        <!-- /.card-body -->
+        <div class="col-md-12 text-center">
+          {% if page_obj.has_other_pages %}
+            <ul style='display: inline-block;' class="pagination2 btnround">
+              {% if page_obj.has_previous %}
+                <li style='display:inline;'><a style='float:left;border-radius:5px;color:black;padding:7px 6px;background-color:transparent;text-decoration:none;' href="?page={{ page_obj.previous_page_number}}{% if request.GET.search %}&search={{request.GET.search}}{% elif request.GET.search_admin %}&search_admin={{request.GET.search_admin}}{% endif %}"><i class="fa fa-angle-double-left"></i></a></li>
+              {% endif %}
+              {% for i in page_obj.paginator.page_range %}
+                {% if page_obj.number == i %}
+                  <li style='display:inline;'><a style='float:left;border-radius:5px;color:white;padding:7px 15px;background-color:#ef8400;text-decoration:none;' href="?page={{i}}{% if request.GET.search %}&search={{request.GET.search}}{% elif request.GET.search_admin %}&search_admin={{request.GET.search_admin}}{% endif %}">{{i}}</a></li>
+                {% else %}
+                  <li style='display:inline;'><a style='float:left;border-radius:5px;color:black;padding:7px 15px;background-color:transparent;text-decoration:none;' href="?page={{i}}{% if request.GET.search %}&search={{request.GET.search}}{% elif request.GET.search_admin %}&search_admin={{request.GET.search_admin}}{% endif %}">{{i}}</a></li>
+                {% endif %}
+              {% endfor %}
+              {% if page_obj.has_next  %}
+                <li style='display:inline;'><a style='float:left;border-radius:5px;color:black;padding:7px 6px;background-color:transparent;text-decoration:none;' href="?page={{ page_obj.next_page_number}}{% if request.GET.search %}&search={{request.GET.search}}{% elif request.GET.search_admin %}&search_admin={{request.GET.search_admin}}{% endif %}"><i class="fa fa-angle-double-right"></i></a></li>
+              {% endif %}
+            </ul>
+          {% endif %}
+        </div>
+      </div>
+      <!-- /.card -->
+    </div>
+  </div>
+{% endblock main %}
+
+{% block page_title %}Admin Home{% endblock page_title %}

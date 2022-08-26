@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load ratings %}
+{% load static %}
+{% load i18n %}
+{% load humanize %}
+{% block title %}{% trans "filter product" %}{% endblock title %}
+    <!-- Page Content -->
+
+    {% block content %} 
+      
+      <div class="page-heading products-heading header-text">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="text-content">
+                <h4>new arrivals</h4>
+                <h2>sixteen products</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="products">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="filters-content">
+                  <div class="row grid">
+                      {% for filterd in object_list %}
+                        <div class="col-lg-4 col-md-4 all des">
+                          <div class="product-item">
+                            <a href="{% url 'detailproduct' filterd.id %}"><img style='width:350px ; height:400px' src="{{filterd.cover.url}}" alt=""></a>
+                            <div class="down-content">
+                              <a href="{% url 'detailproduct' filterd.id %}"><h4>{{filterd.title}}</h4></a>
+                              {% if filterd.stock == 'have' %}
+                                <h6>${{filterd.price}}</h6>
+                                <span class='btn btn-success' style='bottom:65px;color:white;'>{{filterd.stock}}</span>
+                              {% else %}
+                                <span style='color: #ff0505;font-size: larger;bottom: 252px; margin-right: -18px;'> now we finish that! </span>
+                              {% endif %}
+                              <p>{{filterd.description|striptags|truncatewords:20}}</p>
+                              <span style='bottom:183px;' >{{filterd.date_time_create|naturaltime}}</span>
+                              <span style='bottom: 130px;font-size: 20px;color:black;' >seller: <a class='badge badge-primary' href="{% url 'user_post' filterd.owner.id %}">{{filterd.owner.username}}</a></span>
+                              {% ratings filterd %}
+                              <br>
+                              <p class='badge badge-dark'>views</p> : {{filterd.hits.count}}
+                            </div> 
+                          </div>
+                        </div>
+                      {% endfor %}
+                  </div>
+              </div>
+            </div>
+            <div class="col-md-12">
+              {% if page_obj.has_other_pages %}
+                <ul class="pages">
+                  {% if page_obj.has_previous %}
+                    <li><a href="?page={{ page_obj.previous_page_number}}{% if request.GET.f %}&f={{request.GET.f}}{% elif request.GET.vol %}&vol={{request.GET.vol}}{% endif %}"><i class="fa fa-angle-double-left"></i></a></li>
+                  {% endif %}
+                  {% for i in page_obj.paginator.page_range %}
+                    {% if page_obj.number == i %}
+                      <li class="active"><a href="?page={{i}}{% if request.GET.f %}&f={{request.GET.f}}{% elif request.GET.vol %}&vol={{request.GET.vol}}{% endif %}">{{i}}</a></li>
+                    {% else %}
+                      <li><a href="?page={{i}}{% if request.GET.f %}&f={{request.GET.f}}{% elif request.GET.vol %}&vol={{request.GET.vol}}{% endif %}">{{i}}</a></li>
+                    {% endif %}
+                  {% endfor %}
+                  {% if page_obj.has_next %}
+                    <li><a href="?page={{ page_obj.next_page_number}}{% if request.GET.f %}&f={{request.GET.f}}{% elif request.GET.vol %}&vol={{request.GET.vol}}{% endif %}"><i class="fa fa-angle-double-right"></i></a></li>
+                  {% endif %}
+                </ul>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endblock content %}  

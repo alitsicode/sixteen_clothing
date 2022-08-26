@@ -1,0 +1,102 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-07-27 16:22+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: .\account\login.html:6 .\account\login.html:40 .\account\login.html:57
+#: .\account\signup.html:98
+msgid "Login"
+msgstr "ورود"
+
+#: .\account\login.html:49
+msgid "Forgot password?"
+msgstr "فراموشی رمز عبور"
+
+#: .\account\login.html:84
+msgid "dont have an account? "
+msgstr "حساب ندارید ؟"
+
+#: .\account\login.html:88 .\account\signup.html:7
+msgid "Sign Up"
+msgstr "ثبت نام"
+
+#: .\account\logout.html:4 .\base.html:80
+msgid "LogOut"
+msgstr "خروج"
+
+#: .\account\logout.html:8
+msgid "Are you sure to Log out ?"
+msgstr "از حساب خود خارج می شوید ؟"
+
+#: .\account\logout.html:12
+msgid "Log Out"
+msgstr "خروج"
+
+#: .\account\signup.html:31
+msgid "Sign Up form"
+msgstr "فرم ثبت نام"
+
+#: .\account\signup.html:42
+msgid "Welcome to signup form"
+msgstr "به ثبت نام خوش آمدید"
+
+#: .\account\signup.html:50 .\account\signup.html:67
+msgid "Create an account"
+msgstr "ایجاد حساب"
+
+#: .\account\signup.html:77
+msgid "Signup with this services"
+msgstr "ثبت نام با سرویس "
+
+#: .\account\signup.html:98
+msgid "I'm already a member!"
+msgstr "عضو هستم!"
+
+#: .\base.html:58
+msgid "Home"
+msgstr "خانه"
+
+#: .\base.html:64
+msgid "crete product"
+msgstr "ایجاد محصول"
+
+#: .\base.html:70
+msgid "Our Products"
+msgstr "محصولات ما"
+
+#: .\base.html:73
+msgid "About Us"
+msgstr "درباره ما"
+
+#: .\base.html:76
+msgid "Contact Us"
+msgstr "ارتباط با ما"
+
+#: .\base.html:83
+msgid "Hi"
+msgstr "خوش آمدی"
+
+#: .\base.html:87
+msgid "LogIn"
+msgstr "ورود"
+
+#: .\base.html:90
+msgid "SignUp"
+msgstr "ثبت نام"
+
+#~ msgid "favorites"
+#~ msgstr "علاقه مندی "

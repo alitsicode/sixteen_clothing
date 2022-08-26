@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %} {% trans "LogOut" %} {% endblock title %}
+
+{% block content %}
+<br><br><br><br><br>
+    <h2> {% trans "Are you sure to Log out ?" %} </h2>
+    <br><br>
+    <form action="" method='POST'>
+        {% csrf_token %}
+        <button class='btn btn-danger'> {% trans "Log Out" %} </button>
+    </form>
+{% endblock content %}

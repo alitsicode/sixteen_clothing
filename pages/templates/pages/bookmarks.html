@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% load ratings %}
+{% load static %}
+{% load i18n %}
+{% load humanize %}
+
+{% block title %}{% trans "bookmark product" %}{% endblock title %}
+    <!-- Page Content -->
+    {% block content %}
+      <div class="page-heading products-heading header-text">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="text-content">
+                <h4>new arrivals</h4>
+                <h2>sixteen products</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+      <div class="products">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="filters">
+                <ul>
+                    <li class="active"><h2>your favorites</h2></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="filters-content">
+                  <div class="row grid">
+                    {% for mark in bookmark %}
+                      <div class="col-lg-4 col-md-4 all des">
+                        <div class="product-item">
+                          <a href="{% url 'detailproduct' mark.post.id %}"><img style='width:350px ; height:400px' src="{{mark.post.cover.url}}" alt=""></a>
+                          <div class="down-content">
+                            <a href="{% url 'detailproduct' mark.post.id %}"><h4>{{mark.post.title}}</h4></a>
+                            {% if mark.stock == 'have' %}
+                              <h6>${{mark.post.price}}</h6>
+                              <span class='btn btn-success' style='bottom:65px;color:white;'>{{mark.stock}}</span>
+                            {% else %}
+                              <span style='color: #ff0505;font-size: larger;bottom: 252px; margin-right: -18px;'> now we finish that! </span>
+                            {% endif %}
+                            <p>{{mark.post.description|truncatewords:20}}</p>
+                            <span style='bottom:183px;' >{{mark.date_time_create|naturaltime}}</span>
+                            <span style='bottom: 130px;font-size: 20px;color:black;' >seller: <a class='badge badge-primary' href="{% url 'user_post' mark.owner.id %}">{{mark.owner.username}}</a></span>
+                            {% ratings mark %}
+                            <br>
+                            <p class='badge badge-dark'>views</p> : {{mark.post.hits.count}}
+                          </div>
+                        </div>
+                      </div>
+                    {% endfor %}
+                  </div>
+              </div>
+            </div>
+            <div class="col-md-12">
+              {% if page_obj.has_other_pages %}
+                <ul class="pages">
+                  {% if page_obj.has_previous %}
+                    <li><a href="?page={{ page_obj.previous_page_number}}"><i class="fa fa-angle-double-left"></i></a></li>
+                  {% endif %}
+                  {% for i in page_obj.paginator.page_range %}
+                    {% if page_obj.number == i %}
+                      <li class="active"><a href="?page={{i}}">{{i}}</a></li>
+                    {% else %}
+                      <li><a href="?page={{i}}">{{i}}</a></li>
+                    {% endif %}
+                  {% endfor %}
+                  {% if page_obj.has_next  %}
+                    <li><a href="?page={{ page_obj.next_page_number}}"><i class="fa fa-angle-double-right"></i></a></li>
+                  {% endif %}
+                </ul>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endblock content %}  
