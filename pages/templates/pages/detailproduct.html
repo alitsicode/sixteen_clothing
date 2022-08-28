@@ -43,7 +43,7 @@
                         <h3 class="font-weight-semi-bold mb-4">${{detailproduct.price}}</h3>
                     {% else %}
                         <h3 style='text-decoration-line:line-through;text-decoration-color:red;text-decoration-thickness:4px;' class="font-weight-semi-bold">{{detailproduct.title}}</h3>
-                        <h3 style='color:red;' class="font-weight-semi-bold mb-4">Sorry But We Finish This Now !</h3>
+                        <h3 style='color:red;' class="font-weight-semi-bold mb-4">{% trans "Sorry But We Finish This Now !" %}</h3>
                     {% endif %}
                     <p class="mb-4">{{detailproduct.description|striptags|linebreaks}}</p>
                     <div class="d-flex mb-3">
@@ -128,7 +128,7 @@
                     </ul>
                     {% ratings detailproduct %}
                     <br>
-                    <p class='badge badge-dark'>views</p> : {{detailproduct.hits.count}}
+                    <p class='badge badge-dark'>{% trans "views" %}</p> : {{detailproduct.hits.count}}
                     <div class="d-flex pt-2">
                         <p class="text-dark font-weight-medium mb-0 mr-2">{% trans "Share on" %}:</p>
                         <div class="d-inline-flex">
@@ -148,10 +148,10 @@
                         <br><br>
                     </div>
                     {% if request.user.is_superuser %}
-                        <a class='btn btn-primary' href="{% url 'updateproduct' detailproduct.id %}">Edit</a>
-                        <a class='btn btn-danger' href="{% url 'deleteproduct' detailproduct.id %}">Delete</a>
+                        <a class='btn btn-primary' href="{% url 'updateproduct' detailproduct.id %}">{% trans "Edit" %}</a>
+                        <a class='btn btn-danger' href="{% url 'deleteproduct' detailproduct.id %}">{% trans "Delete" %}</a>
                     {% elif detailproduct.owner == request.user %}
-                        <a class='btn btn-primary' href="{% url 'updateproduct' detailproduct.id %}">Edit</a>
+                        <a class='btn btn-primary' href="{% url 'updateproduct' detailproduct.id %}">{% trans "Edit" %}</a>
                     {% endif %}
                 </div>
             </div>

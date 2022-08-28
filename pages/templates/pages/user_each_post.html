@@ -24,8 +24,8 @@
           <div class="row">
             <div class="col-md-12">
               <div class="text-content">
-                <h4>new arrivals</h4>
-                <h2>sixteen products</h2>
+                <h4>{% trans "new arrivals" %}</h4>
+                <h2>{% trans "sixteen products" %}</h2>
               </div>
             </div>
           </div>
@@ -51,14 +51,14 @@
                               <h6>${{product.price}}</h6>
                               <span class='btn btn-success' style='bottom:65px;color:white;' >{{product.stock}}</span>
                             {% else %}
-                              <span style='color: #ff0505;font-size: larger;bottom: 252px; margin-right: -18px;'> now we finish that! </span>
+                              <span style='color: #ff0505;font-size: larger;bottom: 252px; margin-right: -18px;'> {% trans "now we finish that!" %} </span>
                             {% endif %}
                             <p style='font-size:smaller;'>{{product.description|truncatechars:10}}</p>
                             {% ratings product %}
                             <span style='bottom:183px;' >{{product.date_time_create|naturaltime}}</span>
-                            <span style='bottom: 130px;font-size: 20px;color:black;' >seller: <a class='badge badge-primary' href="{% url 'user_post' product.owner.id %}">{{product.owner.username}}</a></span>
+                            <span style='bottom: 130px;font-size: 20px;color:black;' >{% trans "seller" %}: <a class='badge badge-primary' href="{% url 'user_post' product.owner.id %}">{{product.owner.username}}</a></span>
                             <br>
-                            <p class='badge badge-dark'>views</p> : {{product.hits.count}}
+                            <p class='badge badge-dark'>{% trans "views" %}</p> : {{product.hits.count}}
                             
                           </div>
                         </div>

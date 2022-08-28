@@ -6,6 +6,7 @@ from .models import product,likes,bookmarks
 from .forms import profile_form
 from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
+from django.utils.translation import gettext_lazy as _
 # Create your views here.
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin,UserPassesTestMixin
@@ -72,7 +73,7 @@ class createshop(LoginRequiredMixin,fieldmixin,generic.CreateView):
                 instance.is_published='d'
             instance.stock='in_order'
             instance.save()
-        messages.success(self.request, "your product successfuly add")
+        messages.success(self.request, _("your product successfuly add"))
         return super().form_valid(form)
 
 
@@ -92,7 +93,7 @@ class updateshop(fieldmixin,authormixin,SuccessMessageMixin,generic.UpdateView):
                 instance.is_published='d'
             instance.stock='in_order'
             instance.save()
-        messages.info(self.request, "your product successfuly update")
+        messages.info(self.request, _("your product successfuly update"))
         return super().form_valid(form)
 
 class deleteshop(superusermixin,generic.DeleteView):
@@ -102,7 +103,7 @@ class deleteshop(superusermixin,generic.DeleteView):
     context_object_name='product'
     # success_message='your product successfuly deleted ):'
     def form_valid(self, form):
-        messages.error(self.request, "your product successfuly deleted ):")
+        messages.error(self.request, _("your product successfuly deleted"))
         return super().form_valid(form)
 
 def like(request,pk):

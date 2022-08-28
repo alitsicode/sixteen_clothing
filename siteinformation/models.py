@@ -11,7 +11,7 @@ class contactmessage(models.Model):
     def __str__(self):
         return self.subject
     class Meta:
-        verbose_name='contactmessage'
+        verbose_name=_('contactmessage')
 
 class aboutus_information(models.Model):
     title=models.CharField(max_length=200,verbose_name=_('title'))
@@ -22,5 +22,5 @@ class aboutus_information(models.Model):
     def work_image_tag(self):
         return format_html('<img width=150px height=150px src="{}" />'. format(self.work_image.url))
     class Meta:
-        verbose_name='aboutus_information'
+        verbose_name=_('aboutus_information')
 

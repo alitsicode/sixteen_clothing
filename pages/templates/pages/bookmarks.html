@@ -12,8 +12,8 @@
           <div class="row">
             <div class="col-md-12">
               <div class="text-content">
-                <h4>new arrivals</h4>
-                <h2>sixteen products</h2>
+                <h4>{% trans "new arrivals" %}</h4>
+                <h2>{% trans "sixteen products" %}</h2>
               </div>
             </div>
           </div>
@@ -27,7 +27,7 @@
             <div class="col-md-12">
               <div class="filters">
                 <ul>
-                    <li class="active"><h2>your favorites</h2></li>
+                    <li class="active"><h2>{% trans "your favorites" %}</h2></li>
                 </ul>
               </div>
             </div>
@@ -44,14 +44,14 @@
                               <h6>${{mark.post.price}}</h6>
                               <span class='btn btn-success' style='bottom:65px;color:white;'>{{mark.stock}}</span>
                             {% else %}
-                              <span style='color: #ff0505;font-size: larger;bottom: 254px;margin-right: -25px;'> now we finish that! </span>
+                              <span style='color: #ff0505;font-size: larger;bottom: 254px;margin-right: -25px;'> {% trans "now we finish that!" %} </span>
                             {% endif %}
                             <p style='font-size:smaller;'>{{mark.post.description|striptags|truncatechars:10}}</p>
                             <span style='bottom:183px;' >{{mark.date_time_create|naturaltime}}</span>
                             {% comment %} <span style='bottom:130px;font-size:20px;color:black;'>seller: <a class='badge badge-primary' href=" {% url 'user_post' mark.owner.id %} " >{{mark.owner.username}}</a></span> {% endcomment %}
                             {% ratings mark %}
                             <br>
-                            <p class='badge badge-dark'>views</p> : {{mark.post.hits.count}}
+                            <p class='badge badge-dark'>{% trans "views" %}</p> : {{mark.post.hits.count}}
                           </div>
                         </div>
                       </div>

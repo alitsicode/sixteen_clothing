@@ -2,13 +2,13 @@
 {% load crispy_forms_tags %}
 {% load i18n %}
 {% block search_title %} {% trans "create product" %} {% endblock search_title %}
-{% block page_title %}create product{% endblock page_title %}
+{% block page_title %}{% trans "create product" %}{% endblock page_title %}
 {% block main %}
     <br><br><br><br>
     <div class="col-md-12"></div>
         <div class="card card-info">
             <div class="card-header">
-              <h3 class="card-title mb-0 float-left">Create Form</h3>
+              <h3 class="card-title mb-0 float-left">{% trans "Create Form" %}</h3>
             </div>
             <!-- /.card-header -->
             <!-- form start -->
@@ -35,13 +35,13 @@
                         <div class="col-6">
                             <div class="form-group">
                                 <div id="div_id_is_published" class="form-group">
-                                    <label for="id_is_published" class=" requiredField">Is published
+                                    <label for="id_is_published" class=" requiredField">{% trans "Is published" %}
                                         <span class="asteriskField">*</span>
                                     </label>
                                     <div>
                                         <select name="is_published" class="select form-control" id="id_is_published">
-                                            <option value="d" selected="">draft</option>
-                                            <option value="i">investigation</option>
+                                            <option value="d" selected="">{% trans "draft" %}</option>
+                                            <option value="i">{% trans "investigation" %}</option>
                                         </select>
                                     </div>
                                 </div>
@@ -76,7 +76,7 @@
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                    <button type="submit" class="btn btn-info">Submit</button>
+                    <button type="submit" class="btn btn-info">{% trans "Submit" %}</button>
                 </div>
             </form>
         </div>

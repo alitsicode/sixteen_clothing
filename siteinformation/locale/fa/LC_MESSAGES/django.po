@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-27 16:33+0100\n"
+"POT-Creation-Date: 2022-08-28 14:04+0430\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,30 +17,129 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: .\models.py:6
+#: .\models.py:7
 msgid "subject"
 msgstr "موضوع"
 
-#: .\models.py:7
+#: .\models.py:8
 msgid "your text"
 msgstr "پیام شما"
 
-#: .\models.py:8
+#: .\models.py:9
 msgid "author"
 msgstr "نویسنده"
 
-#: .\models.py:9
+#: .\models.py:10
 msgid "date_time_create"
 msgstr "تاریخ ایجاد"
 
 #: .\models.py:14
+msgid "contactmessage"
+msgstr "پیام ارتباطی"
+
+#: .\models.py:17
 msgid "title"
 msgstr "تیتر"
 
-#: .\models.py:15
+#: .\models.py:18
 msgid "work_description"
-msgstr "شغل ما"
+msgstr "فعالیت ما"
 
-#: .\models.py:16
+#: .\models.py:19
 msgid "work_image"
 msgstr "عکس کار"
+
+#: .\models.py:25
+msgid "aboutus_information"
+msgstr "درباره ما"
+
+#: .\templates\siteinformation\about.html:5
+#: .\templates\siteinformation\about.html:13
+msgid "about us"
+msgstr "درباره ما"
+
+#: .\templates\siteinformation\about.html:14
+msgid "our company"
+msgstr "شرکت ما"
+
+#: .\templates\siteinformation\about.html:27
+#, fuzzy
+#| msgid "work_description"
+msgid "Our description"
+msgstr "توضیحاتمون "
+
+#: .\templates\siteinformation\about.html:56
+msgid "Our Team Members"
+msgstr "اعضای تیم"
+
+#: .\templates\siteinformation\about.html:245
+msgid "Happy Partners"
+msgstr "شرکای ما"
+
+#: .\templates\siteinformation\contact.html:6
+#: .\templates\siteinformation\contact.html:14
+msgid "contact us"
+msgstr "ارتباط با ما"
+
+#: .\templates\siteinformation\contact.html:15
+msgid "let’s get in touch"
+msgstr ""
+
+#: .\templates\siteinformation\contact.html:28
+msgid "Our Location on Maps"
+msgstr "مکان ما"
+
+#: .\templates\siteinformation\contact.html:44
+msgid "About our office"
+msgstr "در باره شرکت ما"
+
+#: .\templates\siteinformation\contact.html:45
+msgid ""
+"Lorem ipsum dolor sit amet, consectetur adipisic elit. Sed voluptate nihil "
+"eumester consectetur similiqu consectetur.<br><br>Lorem ipsum dolor sit "
+"amet, consectetur adipisic elit. Et, consequuntur, modi mollitia corporis "
+"ipsa voluptate corrupti.</p>"
+msgstr "متن متناسب"
+
+#: .\templates\siteinformation\contact.html:64
+msgid "Send us a Message"
+msgstr "برای ما پیامی بفرست"
+
+#: .\templates\siteinformation\contact.html:77
+msgid "Send Message"
+msgstr "ارسال پیام"
+
+#: .\templates\siteinformation\contact.html:87
+msgid "Accordion Title One"
+msgstr "سوال پرتکرار 1"
+
+#: .\templates\siteinformation\contact.html:89
+#: .\templates\siteinformation\contact.html:95
+#: .\templates\siteinformation\contact.html:101
+#: .\templates\siteinformation\contact.html:107
+msgid ""
+"Lorem ipsum dolor sit amet, consectetur adipisic elit. Sed voluptate nihil "
+"eumester consectetur similiqu consectetur.Lorem ipsum dolor sit amet, "
+"consectetur adipisic elit. Et, consequuntur, modi mollitia corporis ipsa "
+"voluptate corrupti elite."
+msgstr "متن متناسب"
+
+#: .\templates\siteinformation\contact.html:93
+msgid "Second Title Here"
+msgstr "سوال پرتکرار 2"
+
+#: .\templates\siteinformation\contact.html:99
+msgid "Accordion Title Three"
+msgstr "سوال پرتکرار 3"
+
+#: .\templates\siteinformation\contact.html:105
+msgid "Fourth Accordion Title"
+msgstr "سوال پرتکرار 4"
+
+#: .\templates\siteinformation\contact.html:121
+msgid "Our Happy Customers"
+msgstr "مشتری های ما"
+
+#: .\views.py:17
+msgid "your message successfuly send to us"
+msgstr "پیام شما با موفقیت به ما رسید"

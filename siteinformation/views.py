@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.views import generic
+from django.utils.translation import gettext_lazy as _
 from .models import contactmessage,aboutus_information
 from django.contrib import messages
 # Create your views here.
@@ -13,7 +14,7 @@ class contactus(generic.CreateView):
         instance=form.save(commit=False)
         instance.author=self.request.user
         instance.save()
-        messages.success(self.request, "your message successfuly send to us (:")
+        messages.success(self.request, _("your message successfuly send to us"))
         return super().form_valid(form)
 
 def aboutus(request):

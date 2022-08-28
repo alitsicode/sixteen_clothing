@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-27 15:27+0100\n"
+"POT-Creation-Date: 2022-08-28 13:36+0430\n"
 "PO-Revision-Date: 2022-07-31 07:12+0430\n"
 "Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,135 +18,720 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Translated-Using: django-rosetta 0.9.8\n"
 
-#: .\models.py:24
-msgid "your Opinion:"
-msgstr "کامنت شما :"
+#: .\apps.py:7
+msgid "site models"
+msgstr ""
 
-#: .\models.py:25
-msgid "suggest it?"
-msgstr "پیشنهاد میکنید ؟"
+#: .\models.py:10 .\models.py:64
+msgid "ip_address"
+msgstr "آدرس آی پی"
 
-#: .\templates\pages\bookmarks.html:5
+#: .\models.py:14 .\templates\pages\admin_home.html:57
+#: .\templates\pages\createproduct.html:43
+#: .\templates\pages\search_admin_home.html:57
+#: .\templates\pages\updateproduct.html:43
+msgid "draft"
+msgstr "پیش نویس"
+
+#: .\models.py:15 .\templates\pages\admin_home.html:54
+#: .\templates\pages\search_admin_home.html:54
+msgid "published"
+msgstr "منتشر شده"
+
+#: .\models.py:16 .\templates\pages\admin_home.html:62
+#: .\templates\pages\createproduct.html:44
+#: .\templates\pages\search_admin_home.html:62
+#: .\templates\pages\updateproduct.html:44
+msgid "investigation"
+msgstr "در حال بررسی"
+
+#: .\models.py:17
+#, fuzzy
+#| msgid "Black"
+msgid "back"
+msgstr "مشکی"
+
+#: .\models.py:20 .\templates\pages\home.html:85
+#, fuzzy
+#| msgid "Reply"
+msgid "empty"
+msgstr "پاسخ"
+
+#: .\models.py:21 .\templates\pages\home.html:84
+msgid "have"
+msgstr "موجود"
+
+#: .\models.py:22 .\templates\pages\home.html:83
+msgid "in_order"
+msgstr "در حال سفارش"
+
+#: .\models.py:24 .\templates\pages\admin_home.html:25
+#: .\templates\pages\search_admin_home.html:25
+#, fuzzy
+#| msgid "White"
+msgid "title"
+msgstr "سفید"
+
+#: .\models.py:25 .\templates\pages\admin_home.html:28
+#: .\templates\pages\search_admin_home.html:28
+#, fuzzy
+#| msgid "Description"
+msgid "description"
+msgstr "توضیحات"
+
+#: .\models.py:26 .\templates\pages\admin_home.html:31
+#: .\templates\pages\search_admin_home.html:31
+msgid "price"
+msgstr "قیمت"
+
+#: .\models.py:27
+msgid "author"
+msgstr "نویسنده"
+
+#: .\models.py:28 .\templates\pages\admin_home.html:26
+#: .\templates\pages\search_admin_home.html:26
+msgid "cover"
+msgstr "عکس محصول"
+
+#: .\models.py:29
+msgid "is_pubished"
+msgstr "وضعیت انتشار"
+
+#: .\models.py:30
+msgid "stock"
+msgstr "وضعیت موجودی"
+
+#: .\models.py:31 .\templates\pages\admin_home.html:33
+#: .\templates\pages\bookmarks.html:55
+#: .\templates\pages\detailproduct.html:132
+#: .\templates\pages\filter_product.html:47 .\templates\pages\home.html:141
+#: .\templates\pages\listproduct.html:78
+#: .\templates\pages\search_admin_home.html:33
+#: .\templates\pages\search_product.html:48
+#: .\templates\pages\user_each_post.html:61
+#, fuzzy
+#| msgid "Reviews"
+msgid "views"
+msgstr "کامنت ها"
+
+#: .\models.py:32
+msgid "date_created"
+msgstr "زمان ساخت"
+
+#: .\models.py:33
+msgid "date_edited"
+msgstr "زمان ویرایش"
+
+#: .\models.py:34
+msgid "comments"
+msgstr "کامنت ها"
+
+#: .\models.py:35
+#, fuzzy
+#| msgid "Create"
+msgid "rates"
+msgstr "ایجاد"
+
+#: .\models.py:37 .\models.py:63
+#, fuzzy
+#| msgid "all products"
+msgid "product"
+msgstr "همه ی محصولات"
+
+#: .\models.py:47 .\models.py:55
+msgid "user"
+msgstr "کاربر"
+
+#: .\models.py:48 .\models.py:56 .\templates\pages\home.html:41
+#: .\templates\pages\home.html:50 .\templates\pages\home.html:59
+#: .\templates\pages\listproduct.html:32 .\templates\pages\listproduct.html:41
+#: .\templates\pages\listproduct.html:50
+msgid "post"
+msgstr "محصول"
+
+#: .\models.py:52
+#, fuzzy
+#| msgid "Sizes"
+msgid "likes"
+msgstr "سایز ها"
+
+#: .\models.py:60
+#, fuzzy
+#| msgid "bookmark product"
+msgid "bookmark"
+msgstr "مورد علاقه ها"
+
+#: .\models.py:65
+#, fuzzy
+#| msgid "Reviews"
+msgid "timeview"
+msgstr "کامنت ها"
+
+#: .\templates\pages\admin_home.html:4
+#: .\templates\pages\search_admin_home.html:4
+msgid "Admin Home"
+msgstr "پنل ادمین"
+
+#: .\templates\pages\admin_home.html:27
+#: .\templates\pages\filter_product.html:44 .\templates\pages\home.html:137
+#: .\templates\pages\listproduct.html:75
+#: .\templates\pages\search_admin_home.html:27
+#: .\templates\pages\search_product.html:45
+#: .\templates\pages\user_each_post.html:59
+msgid "seller"
+msgstr "فروشنده"
+
+#: .\templates\pages\admin_home.html:29
+#: .\templates\pages\search_admin_home.html:29
+msgid "status"
+msgstr "وضعیت"
+
+#: .\templates\pages\admin_home.html:30
+#: .\templates\pages\search_admin_home.html:30
+msgid "create_time"
+msgstr "زمان ایجاد"
+
+#: .\templates\pages\admin_home.html:32
+#: .\templates\pages\search_admin_home.html:32
+msgid "stars"
+msgstr "ستاره ها"
+
+#: .\templates\pages\admin_home.html:34
+msgid "in_store?"
+msgstr "موجودی در انبار؟"
+
+#: .\templates\pages\admin_home.html:40 .\templates\pages\deleteproduct.html:5
+#: .\templates\pages\deleteproduct.html:17 .\templates\pages\home.html:41
+#: .\templates\pages\listproduct.html:32 .\templates\pages\listproduct.html:66
+#: .\templates\pages\search_admin_home.html:40
+#: .\templates\pages\user_each_post.html:49
+#, python-format
+msgid "%(product.title)s"
+msgstr ""
+
+#: .\templates\pages\admin_home.html:43
+#: .\templates\pages\search_admin_home.html:43
+msgid "Edit Post"
+msgstr "ویرایش محصول"
+
+#: .\templates\pages\admin_home.html:46
+#: .\templates\pages\search_admin_home.html:46
+msgid "Delete Post"
+msgstr "حذف محصول"
+
+#: .\templates\pages\admin_home.html:50
+#, python-format
+msgid "%(product.owner)s"
+msgstr ""
+
+#: .\templates\pages\admin_home.html:51
+#, python-format
+msgid "%(product.description|striptags|truncatewords:30)s"
+msgstr ""
+
+#: .\templates\pages\admin_home.html:55 .\templates\pages\admin_home.html:59
+#: .\templates\pages\admin_home.html:64 .\templates\pages\admin_home.html:69
+#: .\templates\pages\search_admin_home.html:55
+#: .\templates\pages\search_admin_home.html:59
+#: .\templates\pages\search_admin_home.html:64
+#: .\templates\pages\search_admin_home.html:69
+msgid "Watch Post"
+msgstr "دیدن محصول"
+
+#: .\templates\pages\admin_home.html:67
+#: .\templates\pages\search_admin_home.html:67
+#, fuzzy
+#| msgid "deleting"
+msgid "decline"
+msgstr "حذف کردن"
+
+#: .\templates\pages\admin_home.html:73
+#, python-format
+msgid "%(product.date_time_create)s"
+msgstr ""
+
+#: .\templates\pages\admin_home.html:74
+#: .\templates\pages\search_admin_home.html:74
+#, python-format
+msgid "%(product.price)s $"
+msgstr ""
+
+#: .\templates\pages\admin_home.html:79 .\templates\pages\admin_home.html:83
+#: .\templates\pages\admin_home.html:87 .\templates\pages\listproduct.html:69
+#: .\templates\pages\search_admin_home.html:79
+#: .\templates\pages\search_admin_home.html:83
+#: .\templates\pages\search_admin_home.html:87
+#: .\templates\pages\user_each_post.html:52
+#, python-format
+msgid "%(product.stock)s"
+msgstr ""
+
+#: .\templates\pages\bookmarks.html:7
 msgid "bookmark product"
 msgstr "مورد علاقه ها"
 
+#: .\templates\pages\bookmarks.html:15
+#: .\templates\pages\filter_product.html:16
+#: .\templates\pages\listproduct.html:17
+#: .\templates\pages\search_product.html:17
+#: .\templates\pages\user_each_post.html:27
+msgid "new arrivals"
+msgstr "محصولات جدید"
+
+#: .\templates\pages\bookmarks.html:16
+#: .\templates\pages\filter_product.html:17
+#: .\templates\pages\listproduct.html:18
+#: .\templates\pages\search_product.html:18
+#: .\templates\pages\user_each_post.html:28
+#, fuzzy
+#| msgid "create product"
+msgid "sixteen products"
+msgstr ""
+
+#: .\templates\pages\bookmarks.html:30
+msgid "your favorites"
+msgstr "علاقه مندی ها"
+
+#: .\templates\pages\bookmarks.html:42
+#, python-format
+msgid "%(mark.post.title)s"
+msgstr ""
+
+#: .\templates\pages\bookmarks.html:44
+#, python-format
+msgid "$%(mark.post.price)s"
+msgstr ""
+
+#: .\templates\pages\bookmarks.html:45
+#, python-format
+msgid "%(mark.stock)s"
+msgstr ""
+
+#: .\templates\pages\bookmarks.html:47 .\templates\pages\home.html:133
+#: .\templates\pages\listproduct.html:71
+#: .\templates\pages\search_product.html:41
+#: .\templates\pages\user_each_post.html:54
+msgid "now we finish that!"
+msgstr "اتمام موجودی"
+
+#: .\templates\pages\bookmarks.html:49
+#, python-format
+msgid "%(mark.post.description|striptags|truncatechars:10)s"
+msgstr ""
+
 #: .\templates\pages\createproduct.html:4
+#: .\templates\pages\createproduct.html:5 .\templates\pages\profile.html:4
+#: .\templates\pages\updateproduct.html:4
 msgid "create product"
 msgstr "ایجاد محصول"
 
-#: .\templates\pages\createproduct.html:13
-msgid "Create"
-msgstr "ایجاد"
+#: .\templates\pages\createproduct.html:11
+#, fuzzy
+#| msgid "Create"
+msgid "Create Form"
+msgstr "فرم ایجاد"
+
+#: .\templates\pages\createproduct.html:38
+#: .\templates\pages\updateproduct.html:38
+msgid "Is published"
+msgstr "وضعیت انتشار"
+
+#: .\templates\pages\createproduct.html:79 .\templates\pages\profile.html:74
+#: .\templates\pages\updateproduct.html:79
+msgid "Submit"
+msgstr "تایید"
 
 #: .\templates\pages\deleteproduct.html:4
-#: .\templates\pages\deleteproduct.html:15
-msgid "delete"
-msgstr "حذف"
+#, fuzzy
+#| msgid "create product"
+msgid "delete product"
+msgstr "حذف محصول"
 
-#: .\templates\pages\deleteproduct.html:8
-msgid "deleting"
-msgstr "حذف کردن"
+#: .\templates\pages\deleteproduct.html:5
+#, fuzzy
+#| msgid "delete"
+msgid "? Delete"
+msgstr " حذف ؟"
 
 #: .\templates\pages\deleteproduct.html:11
-msgid "are you sure to delete"
+#, fuzzy
+#| msgid "create product"
+msgid "Delete Product"
+msgstr "حذف محصول"
+
+#: .\templates\pages\deleteproduct.html:17
+#, fuzzy
+#| msgid "are you sure to delete"
+msgid "Are you sure to Delete"
 msgstr "از حذف شدن مطمعنی؟"
 
-#: .\templates\pages\detailproduct.html:6
+#: .\templates\pages\deleteproduct.html:18
+#: .\templates\pages\detailproduct.html:153
+#, fuzzy
+#| msgid "delete"
+msgid "Delete"
+msgstr "حذف"
+
+#: .\templates\pages\detailproduct.html:8
+#: .\templates\pages\detailproduct.html:42
+#: .\templates\pages\detailproduct.html:175
+#, python-format
+msgid "%(detailproduct.title)s"
+msgstr ""
+
+#: .\templates\pages\detailproduct.html:8
 msgid "detail"
 msgstr "جزییات"
 
-#: .\templates\pages\detailproduct.html:11
-msgid "Shop Detail"
-msgstr "جزییات محصول"
+#: .\templates\pages\detailproduct.html:43
+#, python-format
+msgid "$%(detailproduct.price)s"
+msgstr ""
 
-#: .\templates\pages\detailproduct.html:13
-msgid "Home"
-msgstr "خانه"
+#: .\templates\pages\detailproduct.html:46
+msgid "Sorry But We Finish This Now !"
+msgstr "اتمام موجودی"
 
-#: .\templates\pages\detailproduct.html:45
+#: .\templates\pages\detailproduct.html:48
+#: .\templates\pages\detailproduct.html:169
+#, python-format
+msgid "%(detailproduct.description|striptags|linebreaks)s"
+msgstr ""
+
+#: .\templates\pages\detailproduct.html:50
 msgid "Sizes"
 msgstr "سایز ها"
 
-#: .\templates\pages\detailproduct.html:70
+#: .\templates\pages\detailproduct.html:75
 msgid "Colors"
 msgstr "رنگ ها"
 
-#: .\templates\pages\detailproduct.html:74
+#: .\templates\pages\detailproduct.html:79
 msgid "Black"
 msgstr "مشکی"
 
-#: .\templates\pages\detailproduct.html:78
+#: .\templates\pages\detailproduct.html:83
 msgid "White"
 msgstr "سفید"
 
-#: .\templates\pages\detailproduct.html:82
+#: .\templates\pages\detailproduct.html:87
 msgid "Red"
 msgstr "قرمز"
 
-#: .\templates\pages\detailproduct.html:86
+#: .\templates\pages\detailproduct.html:91
 msgid "Blue"
 msgstr "آبی"
 
-#: .\templates\pages\detailproduct.html:90
+#: .\templates\pages\detailproduct.html:95
 msgid "Green"
 msgstr "سبز"
 
-#: .\templates\pages\detailproduct.html:108
-msgid "Add To Cart"
-msgstr "اضافه کردن به سبد خرید"
-
-#: .\templates\pages\detailproduct.html:120
+#: .\templates\pages\detailproduct.html:134
 msgid "Share on"
 msgstr "اشتراک گذاری در"
 
-#: .\templates\pages\detailproduct.html:141
+#: .\templates\pages\detailproduct.html:152
+#: .\templates\pages\detailproduct.html:155
+msgid "Edit"
+msgstr "ویرایش"
+
+#: .\templates\pages\detailproduct.html:163
 msgid "Description"
 msgstr "توضیحات"
 
-#: .\templates\pages\detailproduct.html:142
+#: .\templates\pages\detailproduct.html:164
 msgid "Reviews"
 msgstr "کامنت ها"
 
-#: .\templates\pages\detailproduct.html:146
+#: .\templates\pages\detailproduct.html:168
 msgid "Product Description"
 msgstr "توضیحات محصول"
 
-#: .\templates\pages\detailproduct.html:152
+#: .\templates\pages\detailproduct.html:175
 msgid "review for"
 msgstr "کامنت برای"
 
-#: .\templates\pages\detailproduct.html:161
-msgid "Reply"
-msgstr "پاسخ"
+#: .\templates\pages\filter_product.html:6
+#, fuzzy
+#| msgid "create product"
+msgid "filter product"
+msgstr "فیلتر محصول"
 
-#: .\templates\pages\detailproduct.html:177
-msgid "Leave a review"
-msgstr "کامنت خود را ثبت کنید"
+#: .\templates\pages\filter_product.html:35
+#, python-format
+msgid "%(filterd.title)s"
+msgstr ""
 
-#: .\templates\pages\detailproduct.html:179
-msgid "Your Rating"
-msgstr "امتیاز شما"
+#: .\templates\pages\filter_product.html:37
+#, python-format
+msgid "$%(filterd.price)s"
+msgstr ""
 
-#: .\templates\pages\home.html:39
+#: .\templates\pages\filter_product.html:38
+#, python-format
+msgid "%(filterd.stock)s"
+msgstr ""
+
+#: .\templates\pages\filter_product.html:42
+#, python-format
+msgid "%(filterd.description|striptags|truncatechars:10)s"
+msgstr ""
+
+#: .\templates\pages\home.html:7
+msgid "Sixteen Clothing HTML Template"
+msgstr ""
+
+#: .\templates\pages\home.html:17
+msgid "Best Offer"
+msgstr "بهترین پیشنهاد"
+
+#: .\templates\pages\home.html:18
+msgid "New Arrivals On Sale"
+msgstr "محصولات جدید برای فروش"
+
+#: .\templates\pages\home.html:23
+msgid "Flash Deals"
+msgstr ""
+
+#: .\templates\pages\home.html:24
+#, fuzzy
+#| msgid "Latest Products"
+msgid "Get your best products"
+msgstr "دریافت بهترین محصولات "
+
+#: .\templates\pages\home.html:29
+msgid "Last Minute"
+msgstr "لحظه اخری"
+
+#: .\templates\pages\home.html:30
+msgid "Grab last minute deals"
+msgstr ""
+
+#: .\templates\pages\home.html:37 .\templates\pages\listproduct.html:28
+msgid "most viewed post in month"
+msgstr "بیشترین بازدید محصول ماه"
+
+#: .\templates\pages\home.html:46 .\templates\pages\listproduct.html:37
+msgid "most Rated post in month"
+msgstr "پر امتیاز ترین محصول ماه"
+
+#: .\templates\pages\home.html:50 .\templates\pages\listproduct.html:41
+#, python-format
+msgid "%(rated.title)s"
+msgstr ""
+
+#: .\templates\pages\home.html:55 .\templates\pages\listproduct.html:46
+msgid "Hot Post in Month"
+msgstr "محصولات پر کامنت"
+
+#: .\templates\pages\home.html:59 .\templates\pages\listproduct.html:50
+#, python-format
+msgid "%(hot.title)s"
+msgstr ""
+
+#: .\templates\pages\home.html:71
 msgid "Latest Products"
 msgstr "محصولات اخیر"
 
-#: .\templates\pages\home.html:40
-msgid "view all products"
-msgstr "همه ی محصولات"
+#: .\templates\pages\home.html:76
+msgid "Filter By Stock"
+msgstr "فیلتر براساس موجودی"
 
-#: .\templates\pages\home.html:78
+#: .\templates\pages\home.html:80
+msgid "Select stock"
+msgstr "انتخاب موجودی محصول"
+
+#: .\templates\pages\home.html:90
+msgid "Find"
+msgstr "پیدا کن"
+
+#: .\templates\pages\home.html:106
+msgid "Filter By price"
+msgstr "فیلتر براساس قیمت"
+
+#: .\templates\pages\home.html:110
+msgid "What is your budget?"
+msgstr "بودجه خود را انتخاب کن"
+
+#: .\templates\pages\home.html:120
+msgid "Search"
+msgstr "پیدا کن"
+
+#: .\templates\pages\home.html:128
+#, python-format
+msgid "%(last.title)s"
+msgstr ""
+
+#: .\templates\pages\home.html:130
+#, python-format
+msgid "$%(last.price)s"
+msgstr ""
+
+#: .\templates\pages\home.html:131
+#, python-format
+msgid "%(last.stock)s"
+msgstr ""
+
+#: .\templates\pages\home.html:135
+#, python-format
+msgid "%(last.description|striptags|truncatechars:10)s"
+msgstr ""
+
+#: .\templates\pages\home.html:156
+msgid "About Sixteen Clothing"
+msgstr "درباره شرکت ما"
+
+#: .\templates\pages\home.html:161
+msgid "Looking for the best products?"
+msgstr "گشتن برای بهترین محصول ؟"
+
+#: .\templates\pages\home.html:162
+msgid "Contact us"
+msgstr "ارتباط با ما"
+
+#: .\templates\pages\home.html:162
+msgid "for more info"
+msgstr "اظلاعات بیشتر"
+
+#: .\templates\pages\home.html:164
+msgid "Lorem ipsum dolor sit amet"
+msgstr "جملات متناسب"
+
+#: .\templates\pages\home.html:165
+msgid "Consectetur an adipisicing elit"
+msgstr "جملات متناسب"
+
+#: .\templates\pages\home.html:166
+msgid "It aquecorporis nulla aspernatur"
+msgstr "جملات متناسب"
+
+#: .\templates\pages\home.html:167
+msgid "Corporis, omnis doloremque"
+msgstr "جملات متناسب"
+
+#: .\templates\pages\home.html:168
+msgid "Non cum id reprehenderit"
+msgstr "جملات متناسب"
+
+#: .\templates\pages\home.html:170
 msgid "Read More"
 msgstr "بیشتر"
 
-#: .\templates\pages\listproduct.html:4
+#: .\templates\pages\listproduct.html:6
+#: .\templates\pages\search_product.html:6
 msgid "all products"
 msgstr "همه ی محصولات"
 
-#: .\templates\pages\updateproduct.html:4
-msgid "update product"
+#: .\templates\pages\listproduct.html:68
+#: .\templates\pages\user_each_post.html:51
+#, python-format
+msgid "$%(product.price)s"
+msgstr ""
+
+#: .\templates\pages\listproduct.html:73
+#, python-format
+msgid "%(product.description|striptags|truncatechars:10)s"
+msgstr ""
+
+#: .\templates\pages\profile.html:5 .\templates\pages\profile.html:11
+msgid "profile"
+msgstr "پروفایل"
+
+#: .\templates\pages\profile.html:66
+msgid "for change your password please"
+msgstr "برای تغییر رمز ورود خود"
+
+#: .\templates\pages\profile.html:66
+msgid "click HERE"
+msgstr "اینجا کلیک کنید"
+
+#: .\templates\pages\search_admin_home.html:34
+msgid "in_store"
+msgstr "موجودی "
+
+#: .\templates\pages\search_admin_home.html:51
+#, python-format
+msgid "%(product.description|striptags|truncatewords:10)s"
+msgstr ""
+
+#: .\templates\pages\search_product.html:36
+#, python-format
+msgid "%(search.title)s"
+msgstr ""
+
+#: .\templates\pages\search_product.html:38
+#, python-format
+msgid "$%(search.price)s"
+msgstr ""
+
+#: .\templates\pages\search_product.html:39
+#, python-format
+msgid "%(search.stock)s"
+msgstr ""
+
+#: .\templates\pages\search_product.html:43
+#, python-format
+msgid "%(search.description|striptags|truncatechars:10)s"
+msgstr ""
+
+#: .\templates\pages\updateproduct.html:5
+#, fuzzy
+#| msgid "update product"
+msgid "Edit product"
 msgstr "ویرایش محصول"
 
-#: .\templates\pages\updateproduct.html:13
-msgid "update"
-msgstr "ویرایش"
+#: .\templates\pages\updateproduct.html:11
+msgid "Update Form"
+msgstr "فرم ویرایش"
+
+#: .\templates\pages\updateproduct.html:81
+msgid "delete"
+msgstr "حذف"
+
+#: .\templates\pages\user_each_post.html:6
+msgid "user_posts"
+msgstr "محصولات این کاربر"
+
+#: .\templates\pages\user_each_post.html:56
+#, python-format
+msgid "%(product.description|truncatechars:10)s"
+msgstr ""
+
+#: .\views.py:76
+msgid "your product successfuly add"
+msgstr "محصول شما با موفقیت اضافه شد"
+
+#: .\views.py:96
+msgid "your product successfuly update"
+msgstr "محصول شما با موفقیت ویرایش شد"
+
+#: .\views.py:106
+msgid "your product successfuly deleted"
+msgstr "محصول شما با موفقیت حذف شد"
+
+#~ msgid "your Opinion:"
+#~ msgstr "کامنت شما :"
+
+#~ msgid "suggest it?"
+#~ msgstr "پیشنهاد میکنید ؟"
+
+#~ msgid "Shop Detail"
+#~ msgstr "جزییات محصول"
+
+#~ msgid "Home"
+#~ msgstr "خانه"
+
+#~ msgid "Add To Cart"
+#~ msgstr "اضافه کردن به سبد خرید"
+
+#~ msgid "Leave a review"
+#~ msgstr "کامنت خود را ثبت کنید"
+
+#~ msgid "Your Rating"
+#~ msgstr "امتیاز شما"
+
+#~ msgid "view all products"
+#~ msgstr "همه ی محصولات"
+
+#~ msgid "update"
+#~ msgstr "ویرایش"

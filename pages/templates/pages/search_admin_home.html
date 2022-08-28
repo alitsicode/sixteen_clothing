@@ -1,6 +1,7 @@
 {% extends 'admin_base.html' %}
+{% load i18n %}
 {% load ratings %}
-{% block search_title %}Admin Home{% endblock search_title %}
+{% block search_title %}{% trans "Admin Home" %}{% endblock search_title %}
 
 {% block main %}
 {% if messages %}
@@ -21,16 +22,16 @@
           <table class="table table-hover">
             <thead>
               <tr>
-                <th>title</th>
-                <th>cover</th>
-                <th>seller</th>
-                <th>description</th>
-                <th>status</th>
-                <th>create_time</th>
-                <th>price</th>
-                <th>stars</th>
-                <th>views</th>
-                <th>in_store?</th>
+                <th>{% trans "title" %}</th>
+                <th>{% trans "cover" %}</th>
+                <th>{% trans "seller" %}</th>
+                <th>{% trans "description" %}</th>
+                <th>{% trans "status" %}</th>
+                <th>{% trans "create_time" %}</th>
+                <th>{% trans "price" %}</th>
+                <th>{% trans "stars" %}</th>
+                <th>{% trans "views" %}</th>
+                <th>{% trans "in_store" %}?</th>
               </tr>
             </thead>
             <tbody>
@@ -39,10 +40,10 @@
                         <td>{{product.title}}
                           {% if product.is_published in 'bd'|make_list or request.user.is_superuser %}
                           <br>
-                            <a class='badge badge-primary' href="{% url 'updateproduct' product.id %}">Edit Post</a>
+                            <a class='badge badge-primary' href="{% url 'updateproduct' product.id %}">{% trans "Edit Post" %}</a>
                           {% endif %}
                           {% if request.user.is_superuser %}
-                            <a class='badge badge-danger' href="{% url 'deleteproduct' product.id %}">Delete Post</a>
+                            <a class='badge badge-danger' href="{% url 'deleteproduct' product.id %}">{% trans "Delete Post" %}</a>
                           {% endif %}
                         </td>
                         <td><img width=120px height=120px src="{{product.cover.url}}" alt=""></td>
@@ -50,22 +51,22 @@
                         <td>{{product.description|striptags|truncatewords:10}}</td>
                         <td>
                             {% if product.is_published == 'p' %}
-                                <span class="badge badge-success">published</span>
-                                <a class="badge badge-secondary" href="{% url 'detailproduct' product.id %}" >Watch Post</a>
+                                <span class="badge badge-success">{% trans "published" %}</span>
+                                <a class="badge badge-secondary" href="{% url 'detailproduct' product.id %}" >{% trans "Watch Post" %}</a>
                             {% elif product.is_published == 'd' %}
-                                <span class="badge badge-warning">draft</span>
+                                <span class="badge badge-warning">{% trans "draft" %}</span>
                                 {% if request.user.is_superuser %}
-                                  <a class="badge badge-secondary" href="{% url 'detailproduct' product.id %}" >Watch Post</a>
+                                  <a class="badge badge-secondary" href="{% url 'detailproduct' product.id %}" >{% trans "Watch Post" %}</a>
                                 {% endif %}
                             {% elif product.is_published == 'i' %}
-                                <span class="badge badge-primary">investigation</span>
+                                <span class="badge badge-primary">{% trans "investigation" %}</span>
                                 {% if request.user.is_superuser %}
-                                  <a class="badge badge-secondary" href="{% url 'detailproduct' product.id %}" >Watch Post</a>
+                                  <a class="badge badge-secondary" href="{% url 'detailproduct' product.id %}" >{% trans "Watch Post" %}</a>
                                 {% endif %}
                             {% else %}
-                                <span class="badge badge-danger">decline</span>
+                                <span class="badge badge-danger">{% trans "decline" %}</span>
                                 {% if request.user.is_superuser %}
-                                  <a class="badge badge-secondary" href="{% url 'detailproduct' product.id %}" >Watch Post</a>
+                                  <a class="badge badge-secondary" href="{% url 'detailproduct' product.id %}" >{% trans "Watch Post" %}</a>
                                 {% endif %}
                             {% endif %}
                         </td>

@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
+{% load i18n %}
 {% load static %}
 
-{% block title %} about us {% endblock title %}
+{% block title %} {% trans "about us" %} {% endblock title %}
     <!-- Page Content -->
   {% block content %}
     <div class="page-heading about-heading header-text">
@@ -9,8 +10,8 @@
         <div class="row">
           <div class="col-md-12">
             <div class="text-content">
-              <h4>about us</h4>
-              <h2>our company</h2>
+              <h4>{% trans "about us" %}</h4>
+              <h2>{% trans "our company" %}</h2>
             </div>
           </div>
         </div>
@@ -23,7 +24,7 @@
         <div class="row">
           <div class="col-md-12">
             <div class="section-heading">
-              <h2>Our description</h2>
+              <h2>{% trans "Our description" %}</h2>
             </div>
           </div>
           <div class="col-md-6">
@@ -52,7 +53,7 @@
         <div class="row">
           <div class="col-md-12">
             <div class="section-heading">
-              <h2>Our Team Members</h2>
+              <h2>{% trans "Our Team Members" %}</h2>
             </div>
           </div>
           <div class="col-md-4">
@@ -241,7 +242,7 @@
         <div class="row">
           <div class="col-md-12">
             <div class="section-heading">
-              <h2>Happy Partners</h2>
+              <h2>{% trans "Happy Partners" %}</h2>
             </div>
           </div>
           <div class="col-md-12">

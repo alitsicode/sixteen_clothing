@@ -4,7 +4,7 @@
 {% load i18n %}
 {% load humanize %}
 
-{% block title %}Sixteen Clothing HTML Template{% endblock title %}
+{% block title %}{% trans "Sixteen Clothing HTML Template" %}{% endblock title %}
 
     <!-- Page Content -->
     <!-- Banner Starts Here -->
@@ -14,49 +14,49 @@
         <div class="owl-banner owl-carousel">
           <div class="banner-item-01">
             <div class="text-content">
-              <h4>Best Offer</h4>
-              <h2>New Arrivals On Sale</h2>
+              <h4>{% trans "Best Offer" %}</h4>
+              <h2>{% trans "New Arrivals On Sale" %}</h2>
             </div>
           </div>
           <div class="banner-item-02">
             <div class="text-content">
-              <h4>Flash Deals</h4>
-              <h2>Get your best products</h2>
+              <h4>{% trans "Flash Deals" %}</h4>
+              <h2>{% trans "Get your best products" %}</h2>
             </div>
           </div>
           <div class="banner-item-03">
             <div class="text-content">
-              <h4>Last Minute</h4>
-              <h2>Grab last minute deals</h2>
+              <h4>{% trans "Last Minute" %}</h4>
+              <h2>{% trans "Grab last minute deals" %}</h2>
             </div>
           </div>
         </div>
       </div>
       
       <div class='popular_last'>
-        <h2>most viewed post in month </h2>
+        <h2>{% trans "most viewed post in month" %} </h2>
         <hr>
         {% for product in lastproduct %}
           <div class='text-center'>
-            post : <a class='badge badge-warning' href="{% url 'detailproduct' product.id %}">{{product.title}}</a>
+            {% trans "post" %} : <a class='badge badge-warning' href="{% url 'detailproduct' product.id %}">{{product.title}}</a>
           </div>
         {% endfor %}
       </div>
       <div class='rated_product-home'>
-        <h2>most Rated post in month </h2> 
+        <h2>{% trans "most Rated post in month" %} </h2> 
         <hr>
         {% for rated in rated_product %}
           <div class='text-center rated-center'>
-            post : <a class='badge badge-warning' href="{% url 'detailproduct' rated.id %}">{{rated.title}}</a>
+            {% trans "post" %} : <a class='badge badge-warning' href="{% url 'detailproduct' rated.id %}">{{rated.title}}</a>
           </div>
         {% endfor %}
       </div>
       <div class='hot_product-home'>
-        <h2>Hot Post in Month </h2>
+        <h2>{% trans "Hot Post in Month" %} </h2>
         <hr>
         {% for hot in hot_product %}
           <div class='text-center rated-center'>
-            post : <a href="{% url 'detailproduct' hot.id %}" class='badge badge-warning'>{{hot.title}}</a>           
+            {% trans "post" %} : <a href="{% url 'detailproduct' hot.id %}" class='badge badge-warning'>{{hot.title}}</a>           
           </div>
         {% endfor %}
       </div>
@@ -73,21 +73,21 @@
               </div>
             </div>
             <div class="col-md-4">           
-              <h2>Filter By Stock </h2>
+              <h2>{% trans "Filter By Stock" %} </h2>
               <hr>
               <form method='GET' action="{% url 'filterproduct' %}">
                 <div style='display: inline-block;vertical-align: top;background: #eee;text-align: left;box-shadow: 0 1px 4px rgb(0 0 0);padding: 30px;width: 305px;height: 210px;margin: 10px;' class="control-group">
-                  <h3 style='text-align:center;'>Select stock</h3>
+                  <h3 style='text-align:center;'>{% trans "Select stock" %}</h3>
                   <div style='margin-bottom: 15px;width: 100%;margin-top: 20px;text-align: center;' class="select">
                     <select name='f' style='display: inline-block;width: 100%;cursor: pointer;padding: 10px 15px;border-radius: 7px;background: #e6e6e6;color: #7b7b7b;border:groove 1px;'>
-                      <option style='color:black;' >in_order</option>
-                      <option style='color:black;' >have</option>
-                      <option style='color:black;' >empty</option>
+                      <option style='color:black;' >{% trans "in_order" %}</option>
+                      <option style='color:black;' >{% trans "have" %}</option>
+                      <option style='color:black;' >{% trans "empty" %}</option>
                     </select>
                   </div>
                 </div>
                 <br>
-                  <button style='height: 39px;margin-top:10px;margin-right:-7px;' class="btn btn-primary ">Find</button>
+                  <button style='height: 39px;margin-top:10px;margin-right:-7px;' class="btn btn-primary ">{% trans "Find" %}</button>
               </form>
                 {% comment %} <div class='form-check form-check-inline'>
                   <label for="empty">empty</label>
@@ -102,11 +102,11 @@
                   <input style='margin-left:3px;' type="radio" id="in_order" name="f" value="in_order">
                 </div> {% endcomment %}
                 <br><br>
-              <h2>Filter By price </h2>
+              <h2>{% trans "Filter By price" %} </h2>
               <hr>
               <form class='form-inline' method='GET' action="{% url 'filterbyprice' %}">
                 <section id="content">
-                  <h3 class='text-left'>What is your budget?</h3>
+                  <h3 class='text-left'>{% trans "What is your budget?" %}</h3>
                   <div class="cube">
                     <div class="a"></div>
                     <div class="b"></div>
@@ -116,7 +116,7 @@
                   </div>
                   <input name='vol' type="text" id="amount"/>
                 </section>             
-                  <button style='height: 39px;margin-top:10px;margin-right:-7px;margin-bottom: 78px;' class="btn btn-primary ">Search</button>
+                  <button style='height: 39px;margin-top:10px;margin-right:-7px;margin-bottom: 78px;' class="btn btn-primary ">{% trans "Search" %}</button>
               </form>
             </div>
             {% for last in lastproduct %}
@@ -126,18 +126,18 @@
                   <div class="down-content">
                     <a href="{% url 'detailproduct' last.id %}"><h4>{{last.title}}</h4></a>
                     {% if last.stock == 'have' %}
-                      <h6>${{last.price}}</h6>
+                      <h6>${{last.price}}}</h6>
                       <span class='btn btn-success' style='bottom:65px;color:white;'>{{last.stock}}</span>
                     {% else %}
-                      <span style='color: #ff0505;font-size: larger;bottom: 252px; margin-right: -18px;'> now we finish that! </span>
+                      <span style='color: #ff0505;font-size: larger;bottom: 252px; margin-right: -18px;'> {% trans "now we finish that!" %} </span>
                     {% endif %}
                     <p style='font-size:smaller;'>{{last.description|striptags|truncatechars:10}}</p>
                     <span style='bottom:183px;' >{{last.date_time_create|naturaltime}}</span>
-                    <span style='bottom: 130px;font-size: 20px;color:black;' >seller: <a class='badge badge-primary' href="{% url 'user_post' last.owner.id %}">{{last.owner.username}}</a></span>
+                    <span style='bottom: 130px;font-size: 20px;color:black;' >{% trans "seller" %}: <a class='badge badge-primary' href="{% url 'user_post' last.owner.id %}">{{last.owner.username}}</a></span>
                     
                     {% ratings last %}
                     <br>
-                    <p class='badge badge-dark'>views</p> : {{last.hits.count}}
+                    <p class='badge badge-dark'>{% trans "views" %}</p> : {{last.hits.count}}
                   </div>
                 </div>
               </div>
@@ -152,19 +152,19 @@
           <div class="row">
             <div class="col-md-12">
               <div class="section-heading">
-                <h2>About Sixteen Clothing</h2>
+                <h2>{% trans "About Sixteen Clothing" %}</h2>
               </div>
             </div>
             <div class="col-md-6">
               <div class="left-content">
-                <h4>Looking for the best products?</h4>
-                <p><a rel="nofollow" href="https://templatemo.com/tm-546-sixteen-clothing" target="_parent">This template</a> is free to use for your business websites. However, you have no permission to redistribute the downloadable ZIP file on any template collection website. <a rel="nofollow" href="https://templatemo.com/contact">Contact us</a> for more info.</p>
+                <h4>{% trans "Looking for the best products?" %}</h4>
+                <p><a rel="nofollow" href="https://templatemo.com/tm-546-sixteen-clothing" target="_parent">This template</a> is free to use for your business websites. However, you have no permission to redistribute the downloadable ZIP file on any template collection website. <a rel="nofollow" href="https://templatemo.com/contact">{% trans "Contact us" %}</a> {% trans "for more info" %}.</p>
                 <ul class="featured-list">
-                  <li><a href="#">Lorem ipsum dolor sit amet</a></li>
-                  <li><a href="#">Consectetur an adipisicing elit</a></li>
-                  <li><a href="#">It aquecorporis nulla aspernatur</a></li>
-                  <li><a href="#">Corporis, omnis doloremque</a></li>
-                  <li><a href="#">Non cum id reprehenderit</a></li>
+                  <li><a href="#">{% trans "Lorem ipsum dolor sit amet" %}</a></li>
+                  <li><a href="#">{% trans "Consectetur an adipisicing elit" %}</a></li>
+                  <li><a href="#">{% trans "It aquecorporis nulla aspernatur" %}</a></li>
+                  <li><a href="#">{% trans "Corporis, omnis doloremque" %}</a></li>
+                  <li><a href="#">{% trans "Non cum id reprehenderit" %}</a></li>
                 </ul>
                 <a href="{% url 'aboutus' %}" class="filled-button">{% trans "Read More" %}</a>
               </div>

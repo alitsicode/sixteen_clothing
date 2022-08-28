@@ -1,5 +1,5 @@
 from django.contrib import admin
-
+from django.utils.translation import gettext_lazy as _
 # Register your models here.
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
@@ -12,9 +12,9 @@ class customuseradmin(UserAdmin):
     form=customuserchangeform
     model=Customeuser
     fieldsets=UserAdmin.fieldsets+(
-        (None,{'fields':('age','is_author','avatar')},),
+        (None,{'fields':(_('age'),_('is_author'),_('avatar'))},),
     )
     add_fieldsets=UserAdmin.add_fieldsets+(
-        (None,{'fields':('age','is_author','avatar')},),
+        (None,{'fields':(_('age'),_('is_author'),_('avatar'))},),
     )
 admin.site.register(Customeuser,customuseradmin)

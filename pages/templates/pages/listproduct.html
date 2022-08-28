@@ -14,8 +14,8 @@
           <div class="row">
             <div class="col-md-12">
               <div class="text-content">
-                <h4>new arrivals</h4>
-                <h2>sixteen products</h2>
+                <h4>{% trans "new arrivals" %}</h4>
+                <h2>{% trans "sixteen products" %}</h2>
               </div>
             </div>
           </div>
@@ -25,29 +25,29 @@
       
 
       <div class="popular_product">
-        <h2>most viewed post in month </h2>
+        <h2>{% trans "most viewed post in month" %} </h2>
         <hr>
         {% for product in viewed_product %}
           <div class='text-center'>
-            post : <a href="{% url 'detailproduct' product.id %}" class='badge badge-warning'>{{product.title}}</a>           
+            {% trans "post" %} : <a href="{% url 'detailproduct' product.id %}" class='badge badge-warning'>{{product.title}}</a>           
           </div>
         {% endfor %}
       </div>
       <div class='rated_product'>
-        <h2>most Rated post in month </h2> 
+        <h2>{% trans "most Rated post in month" %} </h2> 
         <hr>
         {% for rated in rated_product %}
           <div class='text-center rated-center'>
-            post : <a class='badge badge-warning' href="{% url 'detailproduct' rated.id %}">{{rated.title}}</a>
+            {% trans "post" %} : <a class='badge badge-warning' href="{% url 'detailproduct' rated.id %}">{{rated.title}}</a>
           </div>
         {% endfor %}
       </div>
       <div class="hot_product">
-        <h2>Hot Post in Month </h2>
+        <h2>{% trans "Hot Post in Month" %} </h2>
         <hr>
         {% for hot in hot_product %}
           <div class='text-center hot-center'>
-            post : <a href="{% url 'detailproduct' hot.id %}" class='badge badge-warning'>{{hot.title}}</a>           
+            {% trans "post" %} : <a href="{% url 'detailproduct' hot.id %}" class='badge badge-warning'>{{hot.title}}</a>           
           </div>
         {% endfor %}
       </div>
@@ -68,14 +68,14 @@
                               <h6>${{product.price}}</h6>
                               <span class='btn btn-success' style='bottom:65px;color:white;'>{{product.stock}}</span>
                             {% else %}
-                              <span style='color: #ff0505;font-size: larger;bottom: 252px; margin-right: -18px;'> now we finish that! </span>
+                              <span style='color: #ff0505;font-size: larger;bottom: 252px; margin-right: -18px;'> {% trans "now we finish that!" %} </span>
                             {% endif %}
                             <p style='font-size:smaller;'>{{product.description|striptags|truncatechars:10}}</p>
                             <span style='bottom:183px;' >{{product.date_time_create|naturaltime}}</span>
-                            <span style='bottom: 130px;font-size: 20px;color:black;' >seller: <a class='badge badge-primary' href="{% url 'user_post' product.owner.id %}">{{product.owner.username}}</a></span>
+                            <span style='bottom: 130px;font-size: 20px;color:black;' >{% trans "seller" %}: <a class='badge badge-primary' href="{% url 'user_post' product.owner.id %}">{{product.owner.username}}</a></span>
                             {% ratings product %}
                             <br>
-                            <p class='badge badge-dark'>views</p> : {{product.hits.count}}
+                            <p class='badge badge-dark'>{% trans "views" %}</p> : {{product.hits.count}}
                           </div>
                           
                         </div>

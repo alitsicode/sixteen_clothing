@@ -2,13 +2,13 @@
 {% load crispy_forms_tags %}
 {% load i18n %}
 {% block search_title %} {% trans "create product" %} {% endblock search_title %}
-{% block page_title %}profile{% endblock page_title %}
+{% block page_title %}{% trans "profile" %}{% endblock page_title %}
 {% block main %}
     <br><br><br><br>
     <div class="col-md-12"></div>
         <div class="card card-warning">
             <div class="card-header">
-              <h3 class="card-title mb-0 float-left"><strong>{{request.user.username}} profile</strong></h3>
+              <h3 class="card-title mb-0 float-left"><strong>{{request.user.username}} {% trans "profile" %}</strong></h3>
             </div>
             <!-- /.card-header -->
             <!-- form start -->
@@ -63,7 +63,7 @@
                         </div>
                             <div class="col-12 mt-2">
                                 <div style='background-color:#ffa952;' class="form-group text-center">
-                                    <h5 style='color:#3b4a6b;'>for change your password please</h5><strong ><a class='text-dark' href="{% url 'account_set_password' %}">click HERE</a></strong>
+                                    <h5 style='color:#3b4a6b;'>{% trans "for change your password please" %}</h5><strong ><a class='text-dark' href="{% url 'account_set_password' %}">{% trans "click HERE" %}</a></strong>
                                 </div>
                             </div>
                     </div>
@@ -71,7 +71,7 @@
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                    <button type="submit" class="btn btn-info">Submit</button>
+                    <button type="submit" class="btn btn-info">{% trans "Submit" %}</button>
                 </div>
             </form>
         </div>
