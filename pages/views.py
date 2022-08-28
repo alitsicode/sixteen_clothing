@@ -121,10 +121,10 @@ def save_post(request,pk):
     try:
         save=bookmarks.objects.get(post=mypost,user=request.user)
         save.delete()
-        return JsonResponse({"response":"unbookmark"})
+    
     except:
         bookmarks.objects.create(post=mypost , user=request.user)
-        return JsonResponse({"response":"bookmark"})
+    return redirect('detailproduct',pk)
 
 
 class search(generic.ListView):
@@ -132,7 +132,7 @@ class search(generic.ListView):
     paginate_by=3
     def get_queryset(self):  # new
         query = self.request.GET.get("q")
-        object_list = product.objects.filter(Q(title__icontains=query) | Q(description__icontains=query))
+        object_list = product.objects.filter(is_published='p').filter(Q(title__icontains=query) | Q(description__icontains=query))
         return object_list
 class filter_product(generic.ListView):
     template_name = "pages/filter_product.html"
@@ -149,12 +149,13 @@ class filter_by_price(generic.ListView):
         object_list = product.objects.filter(is_published='p').order_by('-date_time_create').filter(Q(price__range=(0,query)))
         return object_list
 
-class bookmark(LoginRequiredMixin,generic.ListView):
+class saved(LoginRequiredMixin,generic.ListView):
     model=bookmarks
     template_name='pages/bookmarks.html'
     context_object_name='bookmark'
     paginate_by=3
-
+    
+@login_required
 def user_each_post(request,pk):
     my_user=get_object_or_404(Customeuser,pk=pk)
     user_post=product.objects.filter(owner=my_user)

@@ -121,9 +121,9 @@
                         {% endif %}
 
                         {% if is_bookmark %}
-                            <li><a onclick= "bookmark('{{detailproduct.id}}')" ><i id ="bookmark" class='fa fa-bookmark'></i></a> <span id ='count'>{{detailproduct.bookmark.all.count}}</span></li>
+                            <li><a href="{% url 'saveproduct' detailproduct.id %}" ><i id ="bookmark" class='fa fa-bookmark'></i></a> <span id ='count'>{{detailproduct.bookmark.all.count}}</span></li>
                         {% else %}
-                            <li><a onclick= "bookmark('{{detailproduct.id}}')" ><i id ="bookmark" class='fa fa-bookmark-o'></i></a> <span id ='count'>{{detailproduct.bookmark.all.count}}</span></li>
+                            <li><a href="{% url 'saveproduct' detailproduct.id %}" ><i id ="bookmark" class='fa fa-bookmark-o'></i></a> <span id ='count'>{{detailproduct.bookmark.all.count}}</span></li>
                         {% endif %}
                     </ul>
                     {% ratings detailproduct %}

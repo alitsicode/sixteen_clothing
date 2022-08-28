@@ -33,11 +33,11 @@
           </div>
         {% endfor %}
       </div>
-      <div style='border: 1px solid;border-radius: 10px;margin-top: -215px;width: 452px ;padding: 13px;box-shadow: -6px 5px grey;margin-left: 583px;display: block;' class='rated_product'>
+      <div class='rated_product'>
         <h2>most Rated post in month </h2> 
         <hr>
         {% for rated in rated_product %}
-          <div class='text-center'>
+          <div class='text-center rated-center'>
             post : <a class='badge badge-warning' href="{% url 'detailproduct' rated.id %}">{{rated.title}}</a>
           </div>
         {% endfor %}
@@ -46,7 +46,7 @@
         <h2>Hot Post in Month </h2>
         <hr>
         {% for hot in hot_product %}
-          <div class='text-center'>
+          <div class='text-center hot-center'>
             post : <a href="{% url 'detailproduct' hot.id %}" class='badge badge-warning'>{{hot.title}}</a>           
           </div>
         {% endfor %}
@@ -70,7 +70,7 @@
                             {% else %}
                               <span style='color: #ff0505;font-size: larger;bottom: 252px; margin-right: -18px;'> now we finish that! </span>
                             {% endif %}
-                            <p>{{product.description|striptags|truncatewords:20}}</p>
+                            <p style='font-size:smaller;'>{{product.description|striptags|truncatechars:10}}</p>
                             <span style='bottom:183px;' >{{product.date_time_create|naturaltime}}</span>
                             <span style='bottom: 130px;font-size: 20px;color:black;' >seller: <a class='badge badge-primary' href="{% url 'user_post' product.owner.id %}">{{product.owner.username}}</a></span>
                             {% ratings product %}

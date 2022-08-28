@@ -44,11 +44,11 @@
                               <h6>${{mark.post.price}}</h6>
                               <span class='btn btn-success' style='bottom:65px;color:white;'>{{mark.stock}}</span>
                             {% else %}
-                              <span style='color: #ff0505;font-size: larger;bottom: 252px; margin-right: -18px;'> now we finish that! </span>
+                              <span style='color: #ff0505;font-size: larger;bottom: 254px;margin-right: -25px;'> now we finish that! </span>
                             {% endif %}
-                            <p>{{mark.post.description|truncatewords:20}}</p>
+                            <p style='font-size:smaller;'>{{mark.post.description|striptags|truncatechars:10}}</p>
                             <span style='bottom:183px;' >{{mark.date_time_create|naturaltime}}</span>
-                            <span style='bottom: 130px;font-size: 20px;color:black;' >seller: <a class='badge badge-primary' href="{% url 'user_post' mark.owner.id %}">{{mark.owner.username}}</a></span>
+                            {% comment %} <span style='bottom:130px;font-size:20px;color:black;'>seller: <a class='badge badge-primary' href=" {% url 'user_post' mark.owner.id %} " >{{mark.owner.username}}</a></span> {% endcomment %}
                             {% ratings mark %}
                             <br>
                             <p class='badge badge-dark'>views</p> : {{mark.post.hits.count}}

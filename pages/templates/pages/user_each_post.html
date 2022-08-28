@@ -53,7 +53,7 @@
                             {% else %}
                               <span style='color: #ff0505;font-size: larger;bottom: 252px; margin-right: -18px;'> now we finish that! </span>
                             {% endif %}
-                            <p>{{product.description|truncatewords:20}}</p>
+                            <p style='font-size:smaller;'>{{product.description|truncatechars:10}}</p>
                             {% ratings product %}
                             <span style='bottom:183px;' >{{product.date_time_create|naturaltime}}</span>
                             <span style='bottom: 130px;font-size: 20px;color:black;' >seller: <a class='badge badge-primary' href="{% url 'user_post' product.owner.id %}">{{product.owner.username}}</a></span>

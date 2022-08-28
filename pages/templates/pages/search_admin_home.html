@@ -47,7 +47,7 @@
                         </td>
                         <td><img width=120px height=120px src="{{product.cover.url}}" alt=""></td>
                         <td>{{product.owner}}</td>
-                        <td>{{product.description|striptags|truncatewords:30}}</td>
+                        <td>{{product.description|striptags|truncatewords:10}}</td>
                         <td>
                             {% if product.is_published == 'p' %}
                                 <span class="badge badge-success">published</span>

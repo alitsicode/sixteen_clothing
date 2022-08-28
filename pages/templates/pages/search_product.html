@@ -40,7 +40,7 @@
                             {% else %}
                               <span style='color: #ff0505;font-size: larger;bottom: 252px; margin-right: -18px;'> now we finish that! </span>
                             {% endif %}
-                            <p>{{search.description|striptags|truncatewords:20}}</p>
+                            <p style='font-size:smaller;'>{{search.description|striptags|truncatechars:10}}</p>
                             <span style='bottom:183px;' >{{search.date_time_create|naturaltime}}</span>
                             <span style='bottom: 130px;font-size: 20px;color:black;' >seller: <a class='badge badge-primary' href="{% url 'user_post' search.owner.id %}">{{search.owner.username}}</a></span>
                             {% ratings search %}

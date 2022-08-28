@@ -33,7 +33,6 @@ https://templatemo.com/tm-546-sixteen-clothing
     <link rel="stylesheet" href="{% static 'css/fontawesome.css' %}">
     <link rel="stylesheet" href="{% static 'css/templatemo-sixteen.css' %}">
     <link rel="stylesheet" href="{% static 'css/owl.css' %}">
-    <link rel="stylesheet" href="{% static 'css/search.css' %}">
     <link rel="stylesheet" href="{% static 'css/rtl.css' %}">
 
   </head>
@@ -85,8 +84,8 @@ https://templatemo.com/tm-546-sixteen-clothing
                 <li class="nav-item">
                   <abbr style='cursor: pointer;' title="{% trans "LogOut" %}"><a class="nav-link" href="{% url 'account_logout' %}"><i class="fa fa-sign-out fa-2x" aria-hidden="true"></i></a></abbr>
                 </li>
-                <li style='margin-top:9px;' class="nav-item">
-                  <a class="nav-link badge badge-danger" href="">{% trans "Hi" %} {{user.username}}</a>
+                <li style='margin-top:4px;' class="nav-item">
+                  <a style='background-color: red;color:white;border-radius:10px;' class="nav-link " href="">{% trans "Hi" %} {{user.username}}</a>
                 </li>
                 <li class="nav-item" style="{% if request.resolver_match.url_name == 'bookmarkproduct' %} background-color: darkcyan;border-radius: 25% 10%; {% endif %}">
                   <abbr style='cursor: pointer;' title="BookMark"><a class="nav-link " href="{% url 'bookmarkproduct' %}"><i class="fa fa-bookmark fa-2x " aria-hidden="true"></i></a></abbr>
@@ -112,10 +111,10 @@ https://templatemo.com/tm-546-sixteen-clothing
       <div class="row height d-flex justify-content-center align-items-center">
         <div class="col-md-8 ">
           <div class="search">
-            <i style='top:41px;left:840px;z-index:2;font-size:x-large;' class="fa fa-search"></i>
+            <i class="fa fa-search fa-lg"></i>
             <form class='form-inline' method='GET' action="{% url 'searchproduct' %}">
-              <input style='width:890px;background-color:antiquewhite;' name='q' type="text" class="form-control" placeholder="Search Your Order">
-                <button style='height: 57px;margin-top:-1px;margin-right:-7px;' class="btn btn-primary ">Search</button>
+              <input name='q' type="text"  placeholder="Search Your Order">
+                <button class="btn btn-primary  ">Search</button>
             </form>
           </div>
         </div>  

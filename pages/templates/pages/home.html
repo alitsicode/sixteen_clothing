@@ -42,20 +42,20 @@
           </div>
         {% endfor %}
       </div>
-      <div style='border: 1px solid;border-radius: 10px;margin-top: -215px;width: 452px ;padding: 13px;box-shadow: -6px 5px grey;margin-left: 583px;display: block;' class='rated_product'>
+      <div class='rated_product-home'>
         <h2>most Rated post in month </h2> 
         <hr>
         {% for rated in rated_product %}
-          <div class='text-center'>
+          <div class='text-center rated-center'>
             post : <a class='badge badge-warning' href="{% url 'detailproduct' rated.id %}">{{rated.title}}</a>
           </div>
         {% endfor %}
       </div>
-      <div class="hot_product">
+      <div class='hot_product-home'>
         <h2>Hot Post in Month </h2>
         <hr>
         {% for hot in hot_product %}
-          <div class='text-center'>
+          <div class='text-center rated-center'>
             post : <a href="{% url 'detailproduct' hot.id %}" class='badge badge-warning'>{{hot.title}}</a>           
           </div>
         {% endfor %}
@@ -68,7 +68,7 @@
             <div class="col-md-12">
               
               <div class="section-heading text-center">
-                <h2 style='color:red;' class='latest_pro'>{% trans "Latest Products" %}</h2>
+                <h2 style='color:red;font-weight:800;' class='latest_pro'>{% trans "Latest Products" %}</h2>
                 
               </div>
             </div>
@@ -114,7 +114,7 @@
                     <div class="d"></div>
                     <div id="slider-range-min"></div>
                   </div>
-                  <input name='vol' type="text" id="amount"  />
+                  <input name='vol' type="text" id="amount"/>
                 </section>             
                   <button style='height: 39px;margin-top:10px;margin-right:-7px;margin-bottom: 78px;' class="btn btn-primary ">Search</button>
               </form>
@@ -129,9 +129,9 @@
                       <h6>${{last.price}}</h6>
                       <span class='btn btn-success' style='bottom:65px;color:white;'>{{last.stock}}</span>
                     {% else %}
-                      <span class='now_we_finish_that'> now we finish that! </span>
+                      <span style='color: #ff0505;font-size: larger;bottom: 252px; margin-right: -18px;'> now we finish that! </span>
                     {% endif %}
-                    <p>{{last.description|striptags|truncatewords:20}}</p>
+                    <p style='font-size:smaller;'>{{last.description|striptags|truncatechars:10}}</p>
                     <span style='bottom:183px;' >{{last.date_time_create|naturaltime}}</span>
                     <span style='bottom: 130px;font-size: 20px;color:black;' >seller: <a class='badge badge-primary' href="{% url 'user_post' last.owner.id %}">{{last.owner.username}}</a></span>
                     
