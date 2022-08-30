@@ -122,11 +122,11 @@
             {% for last in lastproduct %}
               <div class="col-md-4">
                 <div class="product-item">
-                  <a href="#"><img style='width:350px ; height:400px' src="{{last.cover.url}}" alt=""></a>
+                  <a href="#"><img class='img-fluid' style='width:100%;height:400px;' src="{{last.cover.url}}" alt="product cover"></a>
                   <div class="down-content">
                     <a href="{% url 'detailproduct' last.id %}"><h4>{{last.title}}</h4></a>
                     {% if last.stock == 'have' %}
-                      <h6>${{last.price}}}</h6>
+                      <h6>${{last.price}}</h6>
                       <span class='btn btn-success' style='bottom:65px;color:white;'>{{last.stock}}</span>
                     {% else %}
                       <span style='color: #ff0505;font-size: larger;bottom: 252px; margin-right: -18px;'> {% trans "now we finish that!" %} </span>
@@ -171,7 +171,7 @@
             </div>
             <div class="col-md-6">
               <div class="right-image">
-                <img src="{% static 'images/feature-image.jpg' %}" alt="">
+                <img style='width:100%;height:auto;' class='img-fluid' src="{% static 'images/feature-image.jpg' %}" alt="our work image">
               </div>
             </div>
           </div>

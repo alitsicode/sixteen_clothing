@@ -30,7 +30,7 @@
                       {% for filterd in object_list %}
                         <div class="col-lg-4 col-md-4 all des">
                           <div class="product-item">
-                            <a href="{% url 'detailproduct' filterd.id %}"><img style='width:350px ; height:400px' src="{{filterd.cover.url}}" alt=""></a>
+                            <a href="{% url 'detailproduct' filterd.id %}"><img class='img-fluid' style='width:100%;height:400px;' src="{{filterd.cover.url}}" alt="product cover"></a>
                             <div class="down-content">
                               <a href="{% url 'detailproduct' filterd.id %}"><h4>{{filterd.title}}</h4></a>
                               {% if filterd.stock == 'have' %}

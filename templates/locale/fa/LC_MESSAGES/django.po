@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-27 16:22+0100\n"
+"POT-Creation-Date: 2022-08-29 12:30+0430\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,24 +17,61 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: .\account\login.html:6 .\account\login.html:40 .\account\login.html:57
-#: .\account\signup.html:98
+#: .\account\email.html:4
+msgid "Change Email"
+msgstr "تغییر ایمیل"
+
+#: .\account\email.html:5
+#, fuzzy
+#| msgid "Change Email"
+msgid "Enter Email"
+msgstr "تغییر ایمیل"
+
+#: .\account\email.html:11
+msgid "Please Enter your email"
+msgstr "ایمیل خود را وارد کنید"
+
+#: .\account\email.html:11
+msgid "Correctly"
+msgstr "به درستی"
+
+#: .\account\email.html:26 .\account\password_reset.html:26
+msgid "Send"
+msgstr "ارسال"
+
+#: .\account\login.html:7 .\account\login.html:41 .\account\login.html:76
+#: .\account\password_change_done.html:18
+#: .\account\password_reset_done.html:19 .\account\signup.html:94
 msgid "Login"
 msgstr "ورود"
 
-#: .\account\login.html:49
+#: .\account\login.html:52
+msgid "Username"
+msgstr "نام کاربری"
+
+#: .\account\login.html:57
+#, fuzzy
+#| msgid "Forgot password?"
+msgid "Password"
+msgstr "فراموشی رمز عبور"
+
+#: .\account\login.html:62
+msgid "Remember Me"
+msgstr "به یاد داشته باش"
+
+#: .\account\login.html:68
 msgid "Forgot password?"
 msgstr "فراموشی رمز عبور"
 
-#: .\account\login.html:84
+#: .\account\login.html:89
 msgid "dont have an account? "
 msgstr "حساب ندارید ؟"
 
-#: .\account\login.html:88 .\account\signup.html:7
+#: .\account\login.html:92 .\account\signup.html:7
 msgid "Sign Up"
 msgstr "ثبت نام"
 
-#: .\account\logout.html:4 .\base.html:80
+#: .\account\logout.html:4 .\base.html:85
 msgid "LogOut"
 msgstr "خروج"
 
@@ -46,6 +83,77 @@ msgstr "از حساب خود خارج می شوید ؟"
 msgid "Log Out"
 msgstr "خروج"
 
+#: .\account\password_change.html:4
+#, fuzzy
+#| msgid "Forgot password?"
+msgid "change password"
+msgstr "فراموشی رمز عبور"
+
+#: .\account\password_change.html:5
+#, fuzzy
+#| msgid "Forgot password?"
+msgid "change your password"
+msgstr "فراموشی رمز عبور"
+
+#: .\account\password_change.html:11
+#, fuzzy
+#| msgid "Forgot password?"
+msgid "Change Password Form"
+msgstr "فراموشی رمز عبور"
+
+#: .\account\password_change.html:36
+msgid "Submit"
+msgstr "تایید"
+
+#: .\account\password_change_done.html:3
+msgid "Password change Done"
+msgstr "پسور با موفقیت تغییر کرد"
+
+#: .\account\password_change_done.html:10
+msgid " your Password Change Done"
+msgstr "پسورد با موفقیت تغییر کرد"
+
+#: .\account\password_change_done.html:12
+msgid "Now You Can Login With New Password"
+msgstr "حالا میتونید با پسورد جدید وارد شوید"
+
+#: .\account\password_change_done.html:17
+#: .\account\password_reset_done.html:18 .\base.html:63
+msgid "Home"
+msgstr "خانه"
+
+#: .\account\password_reset.html:4
+#, fuzzy
+#| msgid "Forgot password?"
+msgid "Reset password"
+msgstr "فراموشی رمز عبور"
+
+#: .\account\password_reset.html:5
+msgid "welcome to Reset Password page"
+msgstr "به صفحه ی فراموشی رمز خوش امدید"
+
+#: .\account\password_reset.html:11
+msgid "Please Enter your email below"
+msgstr "ایمیل خود را در زیر وارد کنید"
+
+#: .\account\password_reset_done.html:3 .\account\password_reset_done.html:10
+msgid "Password Reset"
+msgstr "فراموشی رمز"
+
+#: .\account\password_reset_done.html:12
+msgid ""
+"We have sent you an e-mail. If you have not received it please check your "
+"spam folder. Otherwise contact us if you do not receive it in a few minutes"
+msgstr "ایمیلی برای شما ارسال کردیم.اگر دریافت نکردید درون پوشه اسپم را چک کنید.اگر هنوز ایمیل را دریافت نکردید چند دقیقه بعد دوباره امتحان کنید"
+
+#: .\account\password_reset_done.html:16
+msgid "menu"
+msgstr "منو"
+
+#: .\account\password_reset_done.html:17
+msgid "Edit Email"
+msgstr "ویرایش ایمیل"
+
 #: .\account\signup.html:31
 msgid "Sign Up form"
 msgstr "فرم ثبت نام"
@@ -54,49 +162,84 @@ msgstr "فرم ثبت نام"
 msgid "Welcome to signup form"
 msgstr "به ثبت نام خوش آمدید"
 
-#: .\account\signup.html:50 .\account\signup.html:67
+#: .\account\signup.html:44
+msgid "we glad you want to use our website, before that Please SIGNUP"
+msgstr "خوشحالیم که از وبسایت ما استفاده میکنید.لطفا ثبت نام کنید"
+
+#: .\account\signup.html:49 .\account\signup.html:86
 msgid "Create an account"
 msgstr "ایجاد حساب"
 
-#: .\account\signup.html:77
-msgid "Signup with this services"
-msgstr "ثبت نام با سرویس "
+#: .\account\signup.html:64
+msgid "Email Address"
+msgstr "آدرس ایمیل"
 
-#: .\account\signup.html:98
+#: .\account\signup.html:68
+msgid "username"
+msgstr "نام کاربری"
+
+#: .\account\signup.html:72
+#, fuzzy
+#| msgid "Forgot password?"
+msgid "password"
+msgstr "فراموشی رمز عبور"
+
+#: .\account\signup.html:76
+msgid "password(again)"
+msgstr "تکرار پسورد"
+
+#: .\account\signup.html:93
 msgid "I'm already a member!"
 msgstr "عضو هستم!"
 
-#: .\base.html:58
-msgid "Home"
-msgstr "خانه"
+#: .\account\signup.html:100
+msgid "Signup with this services"
+msgstr "ثبت نام با سرویس "
 
-#: .\base.html:64
-msgid "crete product"
-msgstr "ایجاد محصول"
+#: .\base.html:69
+msgid "admin dashbord"
+msgstr "پنل ادمین"
 
-#: .\base.html:70
-msgid "Our Products"
+#: .\base.html:75
+#, fuzzy
+#| msgid "Our Products"
+msgid "All Products"
 msgstr "محصولات ما"
 
-#: .\base.html:73
+#: .\base.html:78
 msgid "About Us"
 msgstr "درباره ما"
 
-#: .\base.html:76
+#: .\base.html:81
 msgid "Contact Us"
 msgstr "ارتباط با ما"
 
-#: .\base.html:83
+#: .\base.html:88
 msgid "Hi"
 msgstr "خوش آمدی"
 
-#: .\base.html:87
+#: .\base.html:94
+msgid "Profile"
+msgstr "پروفایل"
+
+#: .\base.html:98
 msgid "LogIn"
 msgstr "ورود"
 
-#: .\base.html:90
+#: .\base.html:101
 msgid "SignUp"
 msgstr "ثبت نام"
+
+#: .\star_ratings\widget.html:5
+msgid "Average"
+msgstr "میانگین"
+
+#: .\star_ratings\widget.html:7
+msgid "Rate Count"
+msgstr "تعداد امتیاز"
+
+#~ msgid "crete product"
+#~ msgstr "ایجاد محصول"
 
 #~ msgid "favorites"
 #~ msgstr "علاقه مندی "

@@ -1,8 +1,9 @@
 {% extends "star_ratings/widget_base.html" %}
+{% load i18n %}
 {% block rating_detail %}
 <br>
-<p class='badge badge-success'> Average </p> : {{ rating.average }}
+<p class='badge badge-success'> {% trans "Average" %} </p> : {{ rating.average }}
 <br>
-<p class='badge badge-warning'> Rate Count </p> : {{ rating.count }}
+<p class='badge badge-warning'> {% trans "Rate Count" %} </p> : {{ rating.count }}
 
 {% endblock %}

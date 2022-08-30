@@ -49,17 +49,17 @@
                 	{% endif %}
 
 					<div class="wrap-input100 validate-input m-b-23" data-validate = "Username is reauired">
-						<span class="label-input100">Username</span>
+						<span class="label-input100">{% trans "Username" %}</span>
 						{{form.login|add_class:"input100"}}
 						<span class="focus-input100" data-symbol="&#xf206;"></span>
 					</div>
 					<div class="wrap-input100 validate-input m-b-23" data-validate = "Username is reauired">
-						<span class="label-input100">Password</span>
+						<span class="label-input100">{% trans "Password" %}</span>
 						{{form.password|add_class:"input100"}}
 						<span class="focus-input100" data-symbol="&#xf190;"></span>
 					</div>
 					<p>
-						<label for="id_remember">Remember Me:</label>
+						<label for="id_remember">{% trans "Remember Me" %}:</label>
 						<input type="checkbox" name="remember" id="id_remember">
 					</p>
 					

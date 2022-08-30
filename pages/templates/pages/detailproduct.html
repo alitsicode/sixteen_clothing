@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load ratings %}
 {% load static %}
+{% load social_share %}
 {% load comment_tags %}
 {% load crispy_forms_tags %}
 {% load i18n %}
@@ -25,7 +26,7 @@
                     <div id="product-carousel" class="carousel slide" data-ride="carousel">
                         <div class="carousel-inner border">
                             <div class="carousel-item active">
-                                <img class="w-100 h-100" src="{{detailproduct.cover.url}}" alt="Image">
+                                <img style='width:100%;height:400px;' class="img-fluid" src="{{detailproduct.cover.url}}" alt="product cover">
                             </div>
                         </div>
                         <a class="carousel-control-prev" href="#product-carousel" data-slide="prev">
@@ -131,19 +132,16 @@
                     <p class='badge badge-dark'>{% trans "views" %}</p> : {{detailproduct.hits.count}}
                     <div class="d-flex pt-2">
                         <p class="text-dark font-weight-medium mb-0 mr-2">{% trans "Share on" %}:</p>
-                        <div class="d-inline-flex">
-                            <a class="text-dark px-2" href="">
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
-                            <a class="text-dark px-2" href="">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                            <a class="text-dark px-2" href="">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
-                            <a class="text-dark px-2" href="">
-                                <i class="fab fa-pinterest"></i>
-                            </a>
+                        <div class="d-inline-flex">                           
+                            {% post_to_twitter "New Song: {{detailproduct.title}}. Check it out!" "object_or_url" '<i class="fa fa-twitter fa-lg"></i>' %}
+                            <span class='px-2'></span>
+                            {% post_to_whatsapp "object_or_url" '<i class="fa fa-whatsapp fa-lg " aria-hidden="true"></i>' %}
+                            <span class='px-2'></span>
+                            {% post_to_telegram "New Song: {{detailproduct.title}}" "object_or_url" '<i class="fa fa-telegram fa-lg" aria-hidden="true"></i>' %}
+                            <span class='px-2'></span>
+                            {% post_to_facebook "object_or_url" '<i class="fa fa-facebook-square fa-lg" aria-hidden="true"></i>' %}
+                            <span class='px-2'></span>
+                            {% post_to_linkedin "object_or_url" 'fa fa-linkdin fa-lg'  %}
                         </div>
                         <br><br>
                     </div>

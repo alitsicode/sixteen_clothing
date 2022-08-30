@@ -2,13 +2,13 @@
 {% load crispy_forms_tags %}
 {% load i18n %}
 {% block search_title %} {% trans "Change Email" %} {% endblock search_title %}
-{% block page_title %} <h3>Enter Email</h3>  {% endblock page_title %}
+{% block page_title %} <h3>{% trans "Enter Email" %}</h3>  {% endblock page_title %}
 {% block main %}
     <br><br><br><br>
     <div class="col-md-8 mx-auto ">
         <div class="card card-danger">
             <div class="card-header">
-                <h3 class="card-title mb-0 float-left ">Please Enter your email <strong style='color:black;' >Correctly</strong></h3>
+                <h3 class="card-title mb-0 float-left ">{% trans "Please Enter your email" %} <strong style='color:black;' >{% trans "Correctly" %}</strong></h3>
             </div>
             <form method="POST" action="{% url 'account_reset_password' %}" role="form">
                 {% csrf_token %}
@@ -23,7 +23,7 @@
                     <!-- /.card-body -->
 
                     <div class="card-footer">
-                        <button type="submit" class="btn btn-danger">Send</button>
+                        <button type="submit" class="btn btn-danger">{% trans "Send" %}</button>
                     </div>
                 </div>
             </form>

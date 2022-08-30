@@ -37,7 +37,7 @@
                     {% for mark in bookmark %}
                       <div class="col-lg-4 col-md-4 all des">
                         <div class="product-item">
-                          <a href="{% url 'detailproduct' mark.post.id %}"><img style='width:350px ; height:400px' src="{{mark.post.cover.url}}" alt=""></a>
+                          <a href="{% url 'detailproduct' mark.post.id %}"><img class='img-fluid' style='width:100%;height:400px;' src="{{mark.post.cover.url}}" alt="product cover"></a>
                           <div class="down-content">
                             <a href="{% url 'detailproduct' mark.post.id %}"><h4>{{mark.post.title}}</h4></a>
                             {% if mark.stock == 'have' %}
@@ -47,7 +47,7 @@
                               <span style='color: #ff0505;font-size: larger;bottom: 254px;margin-right: -25px;'> {% trans "now we finish that!" %} </span>
                             {% endif %}
                             <p style='font-size:smaller;'>{{mark.post.description|striptags|truncatechars:10}}</p>
-                            <span style='bottom:183px;' >{{mark.date_time_create|naturaltime}}</span>
+                            <span class='text-danger' style='bottom:183px;' >{{mark.date_time_create|naturaltime}}</span>
                             {% comment %} <span style='bottom:130px;font-size:20px;color:black;'>seller: <a class='badge badge-primary' href=" {% url 'user_post' mark.owner.id %} " >{{mark.owner.username}}</a></span> {% endcomment %}
                             {% ratings mark %}
                             <br>

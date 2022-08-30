@@ -5,6 +5,7 @@ from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes.fields import GenericForeignKey
 from django.db import models
 from django.utils import timezone
+from django.utils.translation import gettext_lazy as _
 
 from comment.managers import CommentManager
 from comment.conf import settings
@@ -12,20 +13,20 @@ from comment.utils import is_comment_moderator
 
 
 class Comment(models.Model):
-    user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, blank=True, null=True)
-    email = models.EmailField(blank=True)
-    parent = models.ForeignKey('self', on_delete=models.CASCADE, null=True, blank=True)
-    content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
-    object_id = models.PositiveIntegerField()
+    user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, blank=True, null=True,verbose_name=_('user'))
+    email = models.EmailField(blank=True,verbose_name=_('email'))
+    parent = models.ForeignKey('self', on_delete=models.CASCADE, null=True, blank=True,verbose_name=_('parent'))
+    content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE,verbose_name=_('content_type'))
+    object_id = models.PositiveIntegerField(verbose_name=_('object_id'))
     content_object = GenericForeignKey('content_type', 'object_id')
-    content = models.TextField()
+    content = models.TextField(verbose_name=_('content'))
     urlhash = models.CharField(
         max_length=50,
         unique=True,
-        editable=False
+        editable=False,verbose_name=_('urlhash')
         )
-    posted = models.DateTimeField(default=timezone.now, editable=False)
-    edited = models.DateTimeField(auto_now=True)
+    posted = models.DateTimeField(default=timezone.now, editable=False,verbose_name=_('posted'))
+    edited = models.DateTimeField(auto_now=True,verbose_name=_('edited'))
 
     objects = CommentManager()
 
