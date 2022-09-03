@@ -19,6 +19,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 urlpatterns = [
     path('',include('pages.urls')),
+    path('cart/',include('cart.urls')),
     path('accounts/',include('allauth.urls')),
     path('rosetta/',include('rosetta.urls')),
     path('site/',include('siteinformation.urls')),

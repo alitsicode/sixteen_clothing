@@ -98,20 +98,28 @@
                         </form>
                     </div>
                     <div class="d-flex align-items-center mb-4 pt-2">
-                        <div class="input-group quantity mr-3" style="width: 130px;">
-                            <div class="input-group-btn">
-                                <button class="btn btn-primary btn-minus" >
-                                <i class="fa fa-minus"></i>
-                                </button>
-                            </div>
-                            <input type="text" class="form-control bg-secondary text-center" value="1">
-                            <div class="input-group-btn">
-                                <button class="btn btn-primary btn-plus">
-                                    <i class="fa fa-plus"></i>
-                                </button>
-                            </div>
-                        </div>
-                        
+                        <div class="input-group quantity mr-3" style="width: 100%;">
+                            <form class='d-flex' action="{% url 'add_cart' detailproduct.id %}" method='POST'>
+                                {% comment %} use ajax to increase/decrease product to cart {% endcomment %}
+                                {% csrf_token %}
+                                <div class="input-group-btn">
+                                    <a onclick= "decrement()" class="btn btn-warning btn-minus" >
+                                    <i class="fa fa-minus"></i>
+                                    </a>
+                                </div>
+                                <input id='demoInput' name="quantity" type="number" class=" form-control bg-dark text-white text-center" min='1' max='30' value="1">
+                                <div class="input-group-btn mr-3">
+                                    <a onclick= "increment()" class="btn btn-warning btn-plus">
+                                        <i class="fa fa-plus"></i>
+                                    </a>
+                                </div>
+                                <div class="input-group-btn">
+                                    <button type='submit' class="btn btn-success">
+                                        {% trans "Add to Cart" %}
+                                    </button>
+                                </div>
+                            </form>
+                        </div>                      
                     </div>
                     <ul class='post-tags'>
                         {% if is_liked %}
@@ -190,6 +198,7 @@
         </script>
         
     {% endblock content %}
+    {% block js %}<script src="{% static 'js/quantity.js' %}"></script>{% endblock js %}
     <!-- Shop Detail End -->
 
     <!-- Products Start -->

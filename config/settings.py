@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_social_share',
     'accounts',
+    'cart',
     'pages',
     'crispy_forms',
     'siteinformation',

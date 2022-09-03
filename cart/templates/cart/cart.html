@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load static %}
+{% block css %}<link rel="stylesheet" href="{% static 'css/cart.css' %}">{% endblock css %}
+{% block title %} {% trans "cart" %} {% endblock title %}
+{% block content %}
+    <div class="cart_section">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-10 offset-lg-1">
+                    <div class="cart_container">
+                        
+                            <div class="cart_title">{% trans "Shopping Cart" %}<small> ({{cart|length}} item in your cart) </small></div>
+                            <div class="cart_items">
+                                <ul class="cart_list">
+                                    {% for item in cart %}
+                                        <li class="cart_item clearfix">
+                                            <div class="cart_item_image"><img src="https://i.imgur.com/qqBRWD5.jpg" alt=""></div>
+                                            <div class="cart_item_info d-flex flex-md-row flex-column justify-content-between">                                               
+                                                <div class="cart_item_name cart_info_col">
+                                                    <div class="cart_item_title">{% trans "Name" %}</div>
+                                                    <div class="cart_item_text">{{item.product_obj.title}}</div>
+                                                </div>
+                                                <div class="cart_item_quantity cart_info_col">
+                                                    <div class="cart_item_title">{% trans "Quantity" %}</div>
+                                                    <form class='d-flex' action="{% url 'add_cart' item.product_obj.id %}" method='POST'>
+                                                        {% comment %} use ajax to increase/decrease product to cart {% endcomment %}
+                                                        {% csrf_token %}
+                                                        <div class="input-group-btn">
+                                                            <a onclick= "decrement()" class="btn btn-warning btn-minus" >
+                                                                <i class="fa fa-minus"></i>
+                                                            </a>
+                                                        </div>
+                                                        <input id='demoInput' name="quantity" type="number" class=" form-control bg-dark text-white text-center" min='1' max='30' value="{{item.quantity}}">
+                                                        <div class="input-group-btn mr-3">
+                                                            <a onclick= "increment()" class="btn btn-warning btn-plus">
+                                                                <i class="fa fa-plus"></i>
+                                                            </a>
+                                                        </div>
+                                                        <div class="input-group-btn">
+                                                            <button type='submit' class="btn btn-info">
+                                                                {% trans "Update Cart" %}
+                                                            </button>
+                                                        </div>
+                                                        {{item.product_update_number_form.inplace}}
+                                                    </form>
+                                                </div>
+                                                <div class="cart_item_price cart_info_col">
+                                                    <div class="cart_item_title">{% trans "Price" %}</div>
+                                                    <div class="cart_item_text">{{item.product_obj.price}}</div>
+                                                </div>
+                                                <div class="cart_item_total cart_info_col">
+                                                    <div class="cart_item_title">{% trans "Total" %}</div>
+                                                    <div class="cart_item_text">{{item.total_price}}</div>
+                                                </div>                                             
+                                            </div>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            <div class="order_total">
+                                <div class="order_total_content text-md-right">
+                                    <div class="order_total_title">{% trans "Order Total" %}:</div>
+                                    <div class="order_total_amount">{{get_total_price}}</div>
+                                </div>
+                            </div>
+                       
+                        <div class="cart_buttons"> <button type="button" class="button cart_button_clear">Continue Shopping</button> <button type="button" class="button cart_button_checkout">Add to Cart</button> </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+{% block js %}<script src="{% static 'js/quantity.js' %}"></script>{% endblock js %}

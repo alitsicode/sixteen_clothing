@@ -369,13 +369,13 @@ p {
   background-color: #eeeeee;
  }
 
- .search input{
+ .search input {
   position: relative;
   height: 60px;
   text-indent: 25px;
   border: 2px solid #d6d4d4;
   width: 100%;
-  background-color: rgb(200 191 178);
+  background-color: rgb(240 224 202);
  }
 
 
@@ -383,8 +383,11 @@ p {
 
   box-shadow: none;
   border: 2px solid blue;
+ }
+ .search input:hover{
 
-
+  box-shadow: none;
+  border: 2px solid rgb(0, 0, 0);
  }
 
  .search .fa-search{

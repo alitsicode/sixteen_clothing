@@ -38,7 +38,7 @@
         <hr>
         {% for product in lastproduct %}
           <div class='text-center'>
-            {% trans "post" %} : <a class='badge badge-warning' href="{% url 'detailproduct' product.id %}">{{product.title}}</a>
+            {% trans "post" %} : <a class='badge badge-warning ' href="{% url 'detailproduct' product.id %}">{{product.title}}</a>
           </div>
         {% endfor %}
       </div>
@@ -124,7 +124,7 @@
                 <div class="product-item">
                   <a href="#"><img class='img-fluid' style='width:100%;height:400px;' src="{{last.cover.url}}" alt="product cover"></a>
                   <div class="down-content">
-                    <a href="{% url 'detailproduct' last.id %}"><h4>{{last.title}}</h4></a>
+                    <a href="{% url 'detailproduct' last.id %}"><h3 class='text-dark'>{{last.title}}</h3></a>
                     {% if last.stock == 'have' %}
                       <h6>${{last.price}}</h6>
                       <span class='btn btn-success' style='bottom:65px;color:white;'>{{last.stock}}</span>

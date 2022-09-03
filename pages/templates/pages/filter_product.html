@@ -32,7 +32,7 @@
                           <div class="product-item">
                             <a href="{% url 'detailproduct' filterd.id %}"><img class='img-fluid' style='width:100%;height:400px;' src="{{filterd.cover.url}}" alt="product cover"></a>
                             <div class="down-content">
-                              <a href="{% url 'detailproduct' filterd.id %}"><h4>{{filterd.title}}</h4></a>
+                              <a href="{% url 'detailproduct' filterd.id %}"><h3 class='text-dark'>{{filterd.title}}</h3></a>
                               {% if filterd.stock == 'have' %}
                                 <h6>${{filterd.price}}</h6>
                                 <span class='btn btn-success' style='bottom:65px;color:white;'>{{filterd.stock}}</span>
