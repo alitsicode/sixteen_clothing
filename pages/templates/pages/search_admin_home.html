@@ -1,6 +1,7 @@
 {% extends 'admin_base.html' %}
 {% load i18n %}
 {% load ratings %}
+{% load humanize %}
 {% block search_title %}{% trans "Admin Home" %}{% endblock search_title %}
 
 {% block main %}
@@ -71,7 +72,7 @@
                             {% endif %}
                         </td>
                         <td>{{product.date_time_create}}</td>
-                        <td>{{product.price}} $</td>
+                        <td>{{product.price|intcomma}} $</td>
                         <td>{% ratings product %}</td>
                         <td>{{ product.hits.count }}</td>
                         {% if product.stock == 'have' %}

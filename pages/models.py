@@ -1,6 +1,7 @@
 from django.db import models
 from accounts.models import Customeuser
 from django.utils.html import format_html
+from django.utils import timezone
 from django.contrib.contenttypes.fields import GenericRelation
 from comment.models import Comment
 from star_ratings.models import Rating
@@ -31,8 +32,8 @@ class product(models.Model):
     hits=models.ManyToManyField(IpAddress,blank=True,through='hitsfilter',related_name='hits',verbose_name=_('views'))
     date_time_create=models.DateTimeField(auto_now_add=True,verbose_name=_('date_created'))
     date_time_edit=models.DateTimeField(auto_now=True,verbose_name=_('date_edited'))
-    comments = GenericRelation(Comment,verbose_name=_('comments'))
-    ratings = GenericRelation(Rating, related_query_name='products',verbose_name=_('rates'))
+    comments = GenericRelation(Comment)
+    ratings = GenericRelation(Rating, related_query_name='products')
     class Meta:
         verbose_name=_('product')
     def __str__(self):

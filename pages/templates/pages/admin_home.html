@@ -1,6 +1,7 @@
 {% extends 'admin_base.html' %}
 {% load i18n %}
 {% load ratings %}
+{% load humanize %}
 {% block search_title %}{% trans "Admin Home" %}{% endblock search_title %}
 
 {% block main %}
@@ -46,7 +47,7 @@
                             <a class='badge badge-danger' href="{% url 'deleteproduct' product.id %}">{% trans "Delete Post" %}</a>
                           {% endif %}
                         </td>
-                        <td><img class='img-fluid' style='width:100%;height:400px;' src="{{product.cover.url}}" alt="product cover"></td>
+                        <td><img class='img-fluid' style='width:100%;height:auto;' src="{{product.cover.url}}" alt="product cover"></td>
                         <td>{{product.owner}}</td>
                         <td>{{product.description|striptags|truncatewords:30}}</td>
                         <td>
@@ -71,7 +72,7 @@
                             {% endif %}
                         </td>
                         <td>{{product.date_time_create}}</td>
-                        <td>{{product.price}} $</td>
+                        <td>{{product.price|intcomma}} $</td>
                         <td>{% ratings product %}</td>
                         <td>{{ product.hits.count }}</td>
                         {% if product.stock == 'have' %}

@@ -1,13 +1,14 @@
 from django.contrib import admin
 from .models import product,likes,IpAddress,bookmarks
 from django.contrib import messages
+from jalali_date.admin import ModelAdminJalaliMixin
 # Register your models here.
 
 # class productcommentsinline(admin.TabularInline):
 #     model=comment
 #     fields=['comment_text','is_suggest','user']
 @admin.register(product)
-class ProductAdmin(admin.ModelAdmin):
+class ProductAdmin(ModelAdminJalaliMixin,admin.ModelAdmin):
     # use that def to pass image in django admin panel in list display
     list_display=['title','owner','cover_tag','is_published','stock']
     list_filter=['owner','is_published','stock']

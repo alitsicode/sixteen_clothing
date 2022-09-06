@@ -378,7 +378,7 @@ p {
   background-color: rgb(240 224 202);
  }
 
-
+ 
  .search input:focus{
 
   box-shadow: none;
@@ -427,7 +427,10 @@ p {
   bottom: 252px;
   margin-right: -18px;
 }
-
+.addtocart:hover {
+  background-color: #000000;
+  color: white;
+}
  
    
 

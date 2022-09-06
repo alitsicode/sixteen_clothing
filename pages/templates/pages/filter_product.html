@@ -34,7 +34,7 @@
                             <div class="down-content">
                               <a href="{% url 'detailproduct' filterd.id %}"><h3 class='text-dark'>{{filterd.title}}</h3></a>
                               {% if filterd.stock == 'have' %}
-                                <h6>${{filterd.price}}</h6>
+                                <h6>${{filterd.price|intcomma}}</h6>
                                 <span class='btn btn-success' style='bottom:65px;color:white;'>{{filterd.stock}}</span>
                               {% else %}
                                 <span style='color: #ff0505;font-size: larger;bottom: 252px; margin-right: -18px;'> now we finish that! </span>

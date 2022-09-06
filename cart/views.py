@@ -2,6 +2,7 @@ from django.shortcuts import render,get_object_or_404,redirect
 from .cart import Cart
 from .forms import add_to_cart_form
 from pages.models import product
+from django.views.decorators.http import require_POST
 # Create your views here.
 def cart_view(request):
     cart=Cart(request)
@@ -9,6 +10,7 @@ def cart_view(request):
         item['product_update_number_form']=add_to_cart_form(initial={'quantity':item['quantity'],'inplace':True})
     return render(request,'cart/cart.html',context={'cart':cart})
 
+@require_POST
 def add_to_cart(request,product_id):
     cart=Cart(request)
     pro=get_object_or_404(product,id=product_id)

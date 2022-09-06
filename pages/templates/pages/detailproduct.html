@@ -3,6 +3,7 @@
 {% load static %}
 {% load social_share %}
 {% load comment_tags %}
+{% load humanize %}
 {% load crispy_forms_tags %}
 {% load i18n %}
 
@@ -41,7 +42,7 @@
                 <div class="col-lg-7 pb-5">
                     {% if detailproduct.stock == 'have' %}
                         <h3 class="font-weight-semi-bold">{{detailproduct.title}}</h3>
-                        <h3 class="font-weight-semi-bold mb-4">${{detailproduct.price}}</h3>
+                        <h3 class="font-weight-semi-bold mb-4">${{detailproduct.price|intcomma}}</h3>
                     {% else %}
                         <h3 style='text-decoration-line:line-through;text-decoration-color:red;text-decoration-thickness:4px;' class="font-weight-semi-bold">{{detailproduct.title}}</h3>
                         <h3 style='color:red;' class="font-weight-semi-bold mb-4">{% trans "Sorry But We Finish This Now !" %}</h3>
@@ -103,13 +104,13 @@
                                 {% comment %} use ajax to increase/decrease product to cart {% endcomment %}
                                 {% csrf_token %}
                                 <div class="input-group-btn">
-                                    <a onclick= "decrement()" class="btn btn-warning btn-minus" >
+                                    <a onclick= "decrement('demoInput-{{detailproduct.id}}')" class="btn btn-warning btn-minus" >
                                     <i class="fa fa-minus"></i>
                                     </a>
                                 </div>
-                                <input id='demoInput' name="quantity" type="number" class=" form-control bg-dark text-white text-center" min='1' max='30' value="1">
+                                <input id='demoInput-{{detailproduct.id}}' name="quantity" type="number" class=" form-control bg-dark text-white text-center" min='1' max='30' value="1">
                                 <div class="input-group-btn mr-3">
-                                    <a onclick= "increment()" class="btn btn-warning btn-plus">
+                                    <a onclick= "increment('demoInput-{{detailproduct.id}}')" class="btn btn-warning btn-plus">
                                         <i class="fa fa-plus"></i>
                                     </a>
                                 </div>

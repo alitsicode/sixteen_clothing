@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load i18n %}
 {% load static %}
+{% load humanize %}
 {% block css %}<link rel="stylesheet" href="{% static 'css/cart.css' %}">{% endblock css %}
 {% block title %} {% trans "cart" %} {% endblock title %}
 {% block content %}
@@ -8,32 +9,35 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-10 offset-lg-1">
-                    <div class="cart_container">
-                        
-                            <div class="cart_title">{% trans "Shopping Cart" %}<small> ({{cart|length}} item in your cart) </small></div>
+                    <div class="cart_container"> 
+                            <div class="cart_title">{% trans "Shopping Cart" %}<small> ({{cart|length}} {% trans "item in your cart" %}) </small></div>
                             <div class="cart_items">
                                 <ul class="cart_list">
-                                    {% for item in cart %}
-                                        <li class="cart_item clearfix">
-                                            <div class="cart_item_image"><img src="https://i.imgur.com/qqBRWD5.jpg" alt=""></div>
-                                            <div class="cart_item_info d-flex flex-md-row flex-column justify-content-between">                                               
-                                                <div class="cart_item_name cart_info_col">
+                                    {% for item in cart %}                                                                                            
+                                        <li class="cart_item clearfix">         
+                                            <div style='width: 10%;' class="cart_item_image"><img style=' margin-top: 23px;' src="{{item.product_obj.cover.url}}" alt="fff"></div>     
+                                            <div class="cart_item_info d-flex flex-md-row flex-column justify-content-around"> 
+                                                <a class='text-danger' style='margin-top: 31px;' href="{% url 'remove_cart' item.product_obj.id %}"><i class="fa fa-times fa-2x"aria-hidden="true"></i></a>                                                                                             
+                                                <div style='width:17%;' class="cart_item_name cart_info_col">
                                                     <div class="cart_item_title">{% trans "Name" %}</div>
-                                                    <div class="cart_item_text">{{item.product_obj.title}}</div>
+                                                    <div class="cart_item_text mt-3">{{item.product_obj.title}}</div>
                                                 </div>
-                                                <div class="cart_item_quantity cart_info_col">
-                                                    <div class="cart_item_title">{% trans "Quantity" %}</div>
-                                                    <form class='d-flex' action="{% url 'add_cart' item.product_obj.id %}" method='POST'>
+                                                <div class="cart_item_quantity cart_info_col ">
+                                                    <div style='text-align: center;' class="cart_item_title">{% trans "Quantity" %}</div>
+                                                    <form class='d-flex mt-2 ' action="{% url 'add_cart' item.product_obj.id %}" method='POST'>
                                                         {% comment %} use ajax to increase/decrease product to cart {% endcomment %}
                                                         {% csrf_token %}
                                                         <div class="input-group-btn">
-                                                            <a onclick= "decrement()" class="btn btn-warning btn-minus" >
+                                                            {% comment %} demoInput-{{item.product_obj.id}} is argument that sent to quantity.js {% endcomment %}
+                                                            <a onclick= "decrement('demoInput-{{item.product_obj.id}}')" class="btn btn-warning btn-minus" >
                                                                 <i class="fa fa-minus"></i>
                                                             </a>
                                                         </div>
-                                                        <input id='demoInput' name="quantity" type="number" class=" form-control bg-dark text-white text-center" min='1' max='30' value="{{item.quantity}}">
+                                                        {% comment %} demoInput-{{item.product_obj.id}} is id to changi in quantity.js {% endcomment %}
+                                                        <input id='demoInput-{{item.product_obj.id}}' name="quantity" type="number" class=" form-control bg-dark text-white text-center" min='1' max='30' value="{{item.quantity}}">
                                                         <div class="input-group-btn mr-3">
-                                                            <a onclick= "increment()" class="btn btn-warning btn-plus">
+                                                            {% comment %} demoInput-{{item.product_obj.id}} is argument that sent to quantity.js {% endcomment %}
+                                                            <a onclick= "increment('demoInput-{{item.product_obj.id}}')" class="btn btn-warning btn-plus">
                                                                 <i class="fa fa-plus"></i>
                                                             </a>
                                                         </div>
@@ -47,11 +51,11 @@
                                                 </div>
                                                 <div class="cart_item_price cart_info_col">
                                                     <div class="cart_item_title">{% trans "Price" %}</div>
-                                                    <div class="cart_item_text">{{item.product_obj.price}}</div>
+                                                    <div class="cart_item_text mt-3">{{item.product_obj.price|intcomma}}</div>
                                                 </div>
                                                 <div class="cart_item_total cart_info_col">
                                                     <div class="cart_item_title">{% trans "Total" %}</div>
-                                                    <div class="cart_item_text">{{item.total_price}}</div>
+                                                    <div class="cart_item_text mt-3">{{item.total_price|intcomma}}</div>
                                                 </div>                                             
                                             </div>
                                         </li>
@@ -61,11 +65,11 @@
                             <div class="order_total">
                                 <div class="order_total_content text-md-right">
                                     <div class="order_total_title">{% trans "Order Total" %}:</div>
-                                    <div class="order_total_amount">{{get_total_price}}</div>
+                                    <div class="order_total_amount">{{cart.total_price|intcomma}}</div>
                                 </div>
                             </div>
                        
-                        <div class="cart_buttons"> <button type="button" class="button cart_button_clear">Continue Shopping</button> <button type="button" class="button cart_button_checkout">Add to Cart</button> </div>
+                        <div class="cart_buttons"> <a href="{% url 'listproduct' %}" class="btn btn-primary text-white addtocart">{% trans "Add more to Cart" %}  <i class="fa fa-cart-plus fa-lg" aria-hidden="true"></i></a></div>
                     </div>
                 </div>
             </div>

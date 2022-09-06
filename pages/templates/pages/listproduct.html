@@ -65,7 +65,7 @@
                           <div class="down-content">
                             <a href="{% url 'detailproduct' product.id %}"><h3 class='text-dark'>{{product.title}}</h3></a>
                             {% if product.stock == 'have' %}
-                              <h6>${{product.price}}</h6>
+                              <h6>${{product.price|intcomma}}</h6>
                               <span class='btn btn-success' style='bottom:65px;color:white;'>{{product.stock}}</span>
                             {% else %}
                               <span style='color: #ff0505;font-size: larger;bottom: 252px; margin-right: -18px;'> {% trans "now we finish that!" %} </span>

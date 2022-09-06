@@ -20,7 +20,7 @@ from django.utils import timezone
 
 
 def homeprouct(request):
-    lastproduct=product.objects.filter(is_published = 'p').order_by('-date_time_create')[0:6]
+    lastproduct=product.objects.filter(is_published ='p').order_by('-date_time_create')[0:5]
     last_month=timezone.now() - timedelta(days=30)
     lastproduct=product.objects.filter(is_published = 'p').annotate(count=Count('hits',filter=Q(hitsfilter__timecreated__gt=last_month))).order_by('-count','-date_time_create')[:5]
     hot_product=product.objects.filter(is_published = 'p').annotate(count=Count('comments',filter=Q(comments__posted__gt=last_month) and Q(comments__content_type_id=7))).order_by('-count','-date_time_create')[:5]
