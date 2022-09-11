@@ -46,7 +46,7 @@
                             {% else %}
                               <span style='color: #ff0505;font-size: larger;bottom: 254px;margin-right: -25px;'> {% trans "now we finish that!" %} </span>
                             {% endif %}
-                            <p style='font-size:smaller;'>{{mark.post.description|striptags|truncatechars:10}}</p>
+                            <p style='font-size:smaller;'>{{mark.post.description|safe|truncatechars:10}}</p>
                             <span class='text-danger' style='bottom:183px;' >{{mark.date_time_create|naturaltime}}</span>
                             {% ratings mark %}
                             <br>

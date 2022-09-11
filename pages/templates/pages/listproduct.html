@@ -70,7 +70,7 @@
                             {% else %}
                               <span style='color: #ff0505;font-size: larger;bottom: 252px; margin-right: -18px;'> {% trans "now we finish that!" %} </span>
                             {% endif %}
-                            <p style='font-size:smaller;'>{{product.description|striptags|truncatechars:10}}</p>
+                            <p style='font-size:smaller;'>{{product.description|safe|truncatechars:10}}</p>
                             <span style='bottom:183px;' >{{product.date_time_create|naturaltime}}</span>
                             <span style='bottom: 130px;font-size: 20px;color:black;' >{% trans "seller" %}: <a class='badge badge-primary' href="{% url 'user_post' product.owner.id %}">{{product.owner.username}}</a></span>
                             {% ratings product %}

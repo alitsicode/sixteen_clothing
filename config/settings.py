@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'comment',
     'star_ratings',
+    'ckeditor',
 
 ]
 
@@ -167,6 +168,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS=[str(BASE_DIR.joinpath('static'))]
+STATIC_ROOT=os.path.join(BASE_DIR,'staticfiles')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field

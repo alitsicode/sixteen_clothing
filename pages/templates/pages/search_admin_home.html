@@ -49,7 +49,7 @@
                         </td>
                         <td><img class='img-fluid' style='width:100%;height:400px;' src="{{product.cover.url}}" alt="product cover"></td>
                         <td>{{product.owner}}</td>
-                        <td>{{product.description|striptags|truncatewords:10}}</td>
+                        <td>{{product.description|safe|truncatewords:10}}</td>
                         <td>
                             {% if product.is_published == 'p' %}
                                 <span class="badge badge-success">{% trans "published" %}</span>

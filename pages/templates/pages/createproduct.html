@@ -1,8 +1,11 @@
 {% extends 'admin_base.html' %}
 {% load crispy_forms_tags %}
 {% load i18n %}
+{% load static %}
+{% load widget_tweaks %}
 {% block search_title %} {% trans "create product" %} {% endblock search_title %}
 {% block page_title %}{% trans "create product" %}{% endblock page_title %}
+{% block add_css %}<link rel="stylesheet" href="{% static 'css/ckeditor.css' %}">{% endblock add_css %}
 {% block main %}
     <br><br><br><br>
     <div class="col-md-12"></div>
@@ -26,9 +29,9 @@
                             {{form.price|as_crispy_field}}
                             </div>
                         </div>
-                        <div class="col-12">
+                        <div class="col-md-12">
                             <div class="form-group">
-                            {{form.description|as_crispy_field}}
+                                {{form.description|add_class:"ckeditor"}}
                             </div>
                         </div>
                         {% if request.user.is_author %}

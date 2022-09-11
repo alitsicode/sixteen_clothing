@@ -6,6 +6,7 @@ from django.contrib.contenttypes.fields import GenericRelation
 from comment.models import Comment
 from star_ratings.models import Rating
 from django.utils.translation import gettext_lazy as _
+from ckeditor.fields import RichTextField
 # Create your models here.
 class IpAddress(models.Model):
     ip_address=models.GenericIPAddressField(verbose_name=_('ip_address'))
@@ -23,7 +24,7 @@ class product(models.Model):
         ('in_order',_('in_order')),
     )
     title=models.CharField(max_length=50,verbose_name=_('title'))
-    description=models.TextField(verbose_name=_('description'))
+    description=RichTextField(verbose_name=_('description'))
     price=models.DecimalField(max_digits=6 , decimal_places=2,verbose_name=_('price'))
     owner=models.ForeignKey(Customeuser,on_delete=models.CASCADE,verbose_name=_('author'))
     cover=models.ImageField(upload_to='cover',verbose_name=_('cover'))

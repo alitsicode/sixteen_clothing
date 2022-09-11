@@ -47,7 +47,7 @@
                         <h3 style='text-decoration-line:line-through;text-decoration-color:red;text-decoration-thickness:4px;' class="font-weight-semi-bold">{{detailproduct.title}}</h3>
                         <h3 style='color:red;' class="font-weight-semi-bold mb-4">{% trans "Sorry But We Finish This Now !" %}</h3>
                     {% endif %}
-                    <p class="mb-4">{{detailproduct.description|striptags|linebreaks}}</p>
+                    <p class="mb-4">{{detailproduct.description|safe|linebreaks}}</p>
                     <div class="d-flex mb-3">
                         <p class="text-dark font-weight-medium mb-0 mr-3">{% trans "Sizes" %}:</p>
                         <form>
@@ -172,7 +172,7 @@
                     <div class="tab-content">
                         <div class="tab-pane fade show active" id="tab-pane-1">
                             <h4 class="mb-3">{% trans "Product Description" %}</h4>
-                            <p>{{detailproduct.description|striptags|linebreaks}}</p>
+                            <p>{{detailproduct.description|safe|linebreaks}}</p>
                         </div>
                         <div class="tab-pane fade" id="tab-pane-3">
                             <div class="row">
